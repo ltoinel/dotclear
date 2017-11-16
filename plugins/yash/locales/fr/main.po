@@ -1,0 +1,201 @@
+# French translations for YASH package.
+# Copyright (C) 2008 THE PLUGIN'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the Dotclear package.
+# Pep <>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2-plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-04 16:56+0100\n"
+"PO-Revision-Date: 2008-05-30 04:19+0100\n"
+"Last-Translator: Pep <>\n"
+"Language-Team: French\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "YASH"
+msgstr "YASH"
+
+msgid "Yet Another Syntax Highlighter"
+msgstr "Coloration syntaxique de code"
+
+msgid "Highlighted Code"
+msgstr "Code mis en forme"
+
+msgid "Plain Text"
+msgstr "Texte simple"
+
+msgid "AppleScript"
+msgstr ""
+
+msgid "ActionScript3"
+msgstr ""
+
+msgid "Bash/shell"
+msgstr ""
+
+msgid "ColdFusion"
+msgstr ""
+
+msgid "C#"
+msgstr ""
+
+msgid "C/C++"
+msgstr ""
+
+msgid "CSS"
+msgstr ""
+
+msgid "Delphi"
+msgstr ""
+
+msgid "Diff/Patch"
+msgstr ""
+
+msgid "Erlang"
+msgstr ""
+
+msgid "Groovy"
+msgstr ""
+
+msgid "Haxe"
+msgstr ""
+
+msgid "Javascript/JSON"
+msgstr ""
+
+msgid "Java"
+msgstr ""
+
+msgid "JavaFX"
+msgstr ""
+
+msgid "Perl"
+msgstr ""
+
+msgid "PHP"
+msgstr ""
+
+msgid "PowerShell"
+msgstr ""
+
+msgid "Python"
+msgstr ""
+
+msgid "Ruby"
+msgstr ""
+
+msgid "SASS"
+msgstr ""
+
+msgid "Scala"
+msgstr ""
+
+msgid "SQL"
+msgstr ""
+
+msgid "Tap"
+msgstr ""
+
+msgid "TypeScript"
+msgstr ""
+
+msgid "Visual Basic"
+msgstr ""
+
+msgid "XML/XSLT/XHTML/HTML"
+msgstr ""
+
+msgid "Yaml"
+msgstr ""
+
+msgid "YASH - Syntax Selector"
+msgstr "YASH - Sélecteur de syntaxe"
+
+msgid "Select the primary syntax of your code snippet."
+msgstr "Sélectionnez la syntaxe principale de votre extrait de code."
+
+msgid "Django"
+msgstr ""
+
+msgid "Eclipse"
+msgstr ""
+
+msgid "Emacs"
+msgstr ""
+
+msgid "Fade to gray"
+msgstr ""
+
+msgid "Material"
+msgstr ""
+
+msgid "MD Ultra"
+msgstr ""
+
+msgid "Midnight"
+msgstr ""
+
+msgid "RDark"
+msgstr ""
+
+msgid "Solarized Dark"
+msgstr ""
+
+msgid "Solarized Light"
+msgstr ""
+
+msgid "Tomorrow Night"
+msgstr ""
+
+msgid "Enable YASH"
+msgstr "Activer YASH"
+
+msgid "Presentation"
+msgstr "Présentation"
+
+msgid "Use custom CSS:"
+msgstr "CSS personnalisée :"
+
+msgid "You can use a custom CSS by providing its location."
+msgstr "Vous pouvez utiliser une CSS personnalisée en fournissant son adresse."
+
+msgid "A location beginning with a / is treated as absolute, else it is treated as relative to the blog's current theme URL"
+msgstr "Une adresse commençant par un / est considérée comme absolue, sinon elle est traitée comme relative à l'adresse du thème actuellement en usage sur le blog."
+
+msgid "Hide gutter with line numbers"
+msgstr "Masquer la colonne avec les numéros de ligne"
+
+msgid "SyntaxeHL compatibility mode"
+msgstr "Mode de compatibilité avec SyntaxeHL"
+
+msgid "All SyntaxeHL languages is not supported by Yash (see documentation)."
+msgstr "Tous les langages proposés par SyntaxeHL ne sont pas supportés (voir la documentation)."
+
+msgid "Will be applied on future edition of posts containing SyntaxeHL macros (///[language]…///)."
+msgstr "Sera appliqué aux prochaines éditions des billets contenant des macros SyntaxeHL (///[langage]…///)."
+
+#~ msgid "Theme:"
+#~ msgstr "Thème :"
+
+#~ msgid "Configuration successfully updated."
+#~ msgstr "La configuration a été mise à jour."
+
+#~ msgid "Save configuration"
+#~ msgstr "Enregistrer la configuration"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgid "Plugin activation"
+#~ msgstr "Activation de l'extension"
+
+#~ msgid "Options"
+#~ msgstr "Options"

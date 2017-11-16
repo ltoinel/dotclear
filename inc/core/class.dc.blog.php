@@ -218,6 +218,21 @@ class dcBlog
 
 		# --BEHAVIOR-- coreBlogAfterTriggerBlog
 		$this->core->callBehavior('coreBlogAfterTriggerBlog',$cur);
+
+		// @HACK
+        $mc = new Memcache();
+        if (!$mc->pconnect("localhost", "11211")) {
+                throw new Exception('cmpCache: Unable to connect to memcached.');
+        }
+
+        // Si il s'agit d'une action provenant de l'admin alors on suprime le cache entier
+        if ($this->core->auth->isSuperAdmin()){
+                $mc->flush();
+        } else {
+                $mc->delete(md5("https://www.geeek.org/"),0);
+        }
+
+        // @HACK END
 	}
 
 	/**
@@ -298,6 +313,10 @@ class dcBlog
 			}
 
 			$cur->update('WHERE post_id = '.$post_id);
+	       // @HACK
+           // Hack for header if modification since ...
+           $cur->post_upddt = date('Y-m-d H:i:s');
+           // @HACK END
 		}
 	}
 	//@}
@@ -1909,7 +1928,10 @@ class dcBlog
 		'{m}' => date('m',strtotime($post_dt)),
 		'{d}' => date('d',strtotime($post_dt)),
 		'{t}' => text::tidyURL($post_title),
-		'{id}' => (integer) $post_id
+		'{id}' => (integer) $post_id,
+		//@HACK
+		'{gid}' => str_pad(($post_id % 1000), 3, "0", STR_PAD_LEFT)
+		//@HACK
 		);
 
 		# If URL is empty, we create a new one
@@ -1922,10 +1944,17 @@ class dcBlog
 				$this->settings->system->post_url_format
 			);
 		}
-		else
-		{
-			$url = text::tidyURL($url);
-		}
+	    // @HACK
+        //else
+        //{
+        //      $url = text::tidyURL($url);
+        //}
+
+        if (!strrpos($url, ".html")){
+                $url = strtolower(text::str2URL($url));
+                $url = $url . ".html";
+        }
+        // @HACK END
 
 		# Let's check if URL is taken...
 		$strReq = 'SELECT post_url FROM '.$this->prefix.'post '.
@@ -1939,13 +1968,11 @@ class dcBlog
 		if (!$rs->isEmpty())
 		{
 			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
-				$clause = "REGEXP '^".$this->con->escape(preg_quote($url))."[0-9]+$'";
+				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
-				$clause = "~ '^".$this->con->escape(preg_quote($url))."[0-9]+$'";
+				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
 			} else {
-				$clause = "LIKE '".
-						$this->con->escape(preg_replace(array('%','_','!'),array('!%','!_','!!'),$url)).
-						"%' ESCAPE '!'";
+				$clause = "LIKE '".$this->con->escape($url)."%'";
 			}
 			$strReq = 'SELECT post_url FROM '.$this->prefix.'post '.
 					"WHERE post_url ".$clause.' '.

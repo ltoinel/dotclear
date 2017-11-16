@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: cleanConfig 1.4\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2010-08-29 21:29+0100\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "clean:config"
+msgstr "clean:config"
+
+msgid "Use carefully. Only settings related to plugins can be deleted."
+msgstr "À utiliser avec précaution. Seuls les paramètres liés aux extensions peuvent être effacés."
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Setting"
+msgstr "Paramètre"
+
+msgid "namespace:"
+msgstr "namespace&nbsp;:"
+
+msgid "No setting."
+msgstr "Pas de paramètre."
+
+msgid "Delete selected settings"
+msgstr "Supprimer les paramètres sélectionnées"
+
+msgid "No setting deleted."
+msgstr "Aucun paramètre supprimé."
+
+msgid "The selected settings have been deleted."
+msgstr "Les paramètres sélectionnés ont été supprimés."
+
+msgid "Are you sure you want to delete settings?"
+msgstr "Êtes-vous certain de vouloir supprimer les paramètres ?"
+
+msgid "versions"
+msgstr "versions"
+
+msgid "This function has been moved to the %s plugin."
+msgstr "Cette fonction a été déplacée dans le plugin %s."
+
+msgid "Versions Manager"
+msgstr "Gestionnaire de versions"
+
+msgid "%s is empty"
+msgstr "%s est vide"
+
+msgid "plugin"
+msgstr "plugin"
+

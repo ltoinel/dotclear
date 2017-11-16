@@ -1,0 +1,45 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+<title>{{tpl:EntryTitle encode_html="1"}}</title>
+
+{{tpl:include src="fragments/_meta.html"}}
+
+{{tpl:include src="fragments/_opengraph-article.html"}}  
+
+{{tpl:include src="fragments/_head.html"}}
+ 
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-8">
+  
+  <!-- # Post entry-->
+  {{tpl:include src="fragments/_entry.html"}}
+  
+  <!-- # Annexes -->
+  {{tpl:include src="fragments/_annexes.html"}}
+  
+  </div><!-- End #content -->
+  
+  {{tpl:include src="fragments/_sidebar.html"}}
+  
+</div> <!-- End #main -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

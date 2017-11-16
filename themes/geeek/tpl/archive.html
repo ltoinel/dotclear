@@ -1,0 +1,53 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+  <title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
+
+  {{tpl:include src="fragments/_meta.html"}}
+  
+  {{tpl:include src="fragments/_head.html"}}
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-8">
+ 
+  <article class="entry"> 
+  	<h1 class="entry-title">{{tpl:lang Archives}}</h1>
+
+  	<tpl:Archives>
+    	<tpl:ArchivesYearHeader>
+		<div class="span2">
+      			<h3>{{tpl:ArchiveDate format="%Y"}}</h3>
+      			<ul>
+    	</tpl:ArchivesYearHeader>
+      	<li><a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a> ({{tpl:ArchiveEntriesCount}})</li>
+    	<tpl:ArchivesYearFooter>
+      		</ul>
+	  </div>
+    	</tpl:ArchivesYearFooter>
+  	</tpl:Archives>
+  </article>
+ 
+  </div> <!-- End #content -->
+  
+  {{tpl:include src="fragments/_sidebar.html"}}
+  
+</div> <!-- End #row -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

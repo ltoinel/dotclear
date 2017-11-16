@@ -1496,8 +1496,11 @@ class dcCore
 		$rs = $this->con->select($strReq);
 		$count = $rs->f(0);
 
-		$strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml '.
+		// @HACK
+		$strReq = 'SELECT post_id, post_title, post_content, post_excerpt, post_format, post_lang, post_excerpt_xhtml, post_content_xhtml '.
 				'FROM '.$this->prefix.'post ';
+
+		// END @HACK
 
 		if ($start !== null && $limit !== null) {
 			$strReq .= $this->con->limit($start,$limit);
@@ -1509,6 +1512,22 @@ class dcCore
 
 		while ($rs->fetch())
 		{
+
+			// @HACK	
+			$post_excerpt = $rs->post_excerpt;
+			$post_excerpt_xhtml = $rs->post_excerpt_xhtml;
+			$post_content = $rs->post_content;
+			$post_content_xhtml = $rs->post_content_xhtml;
+
+			$this->blog->setPostContent(
+                        $rs->post_id,$rs->post_format,$rs->post_lang,
+                        $post_excerpt,$post_excerpt_xhtml,
+                        $post_content,$post_content_xhtml
+                	);
+
+                	$cur->post_content_xhtml = $post_content_xhtml;
+			// END @HACK
+
 			$words = $rs->post_title.' '.	$rs->post_excerpt_xhtml.' '.
 			$rs->post_content_xhtml;
 

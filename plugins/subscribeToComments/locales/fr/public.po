@@ -1,0 +1,105 @@
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: subscribeToComments 1.4-alpha1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2010-08-30T14:15:40+00:00\n"
+"Last-Translator: Ubuntu\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Account informations sent"
+msgstr "Informations sur le compte envoyées"
+
+msgid "Subscriptions removed"
+msgstr "Abonnements effacés"
+
+msgid "Logged out"
+msgstr "Déconnecté"
+
+msgid "Logged in"
+msgstr "Connecté"
+
+msgid "Emails blocked"
+msgstr "Emails bloqués"
+
+msgid "Emails allowed"
+msgstr "Emails autorisés"
+
+msgid "An email has been sent to the new email address"
+msgstr "Un email a été envoyé à la nouvelle adresse email"
+
+msgid "Email address changed"
+msgstr "Adresse email changée"
+
+msgid "Account deleted"
+msgstr "Compte supprimé"
+
+msgid "Subscribed to the entry"
+msgstr "Abonné au billet"
+
+msgid "Subscribe to receive following comments by email or manage subscriptions"
+msgstr "S'abonner pour recevoir les commentaires suivants par email ou modifier les abonnements"
+
+msgid "Subscribe to receive following comments by email"
+msgstr "S'abonner pour recevoir les commentaires suivants par email"
+
+msgid "Error:"
+msgstr "Erreur&nbsp;:"
+
+msgid "Account"
+msgstr "Compte"
+
+msgid "Allow emails?"
+msgstr "Autoriser les emails ?"
+
+msgid "Allow emails"
+msgstr "Autoriser les emails"
+
+msgid "Block emails?"
+msgstr "Bloquer les emails ?"
+
+msgid "Block emails"
+msgstr "Bloquer les emails"
+
+msgid "Change email address"
+msgstr "Changer l'adresse email"
+
+msgid "Click on the button below to resend informations to your email address."
+msgstr "Cliquez sur le bouton ci-dessous pour renvoyer les informations à votre adresse email."
+
+msgid "Delete all subscriptions and the account"
+msgstr "Supprimer tous les abonnements et le compte"
+
+msgid "Delete the account?"
+msgstr "Supprimer le compte ?"
+
+msgid "Entries"
+msgstr "Billets"
+
+msgid "Get back to"
+msgstr "Revenir à"
+
+msgid "Remove selected subscriptions?"
+msgstr "Supprimer les abonnements sélectionnés ?"
+
+msgid "Remove selected subscriptions"
+msgstr "Supprimer les abonnements sélectionnés"
+
+msgid "Remove subscriptions"
+msgstr "Supprimer des abonnements"
+
+msgid "Subscribe to one entry"
+msgstr "S'abonner à un billet"
+
+msgid "To login, you have to click on the link given in previously sent emails."
+msgstr "Pour vous connecter, vous devez cliquer sur le lien donné dans les emails envoyés précédemment."
+
+msgid "You'll have 24 hours to click on the link sent to the new email address to confirm the change."
+msgstr "Vous aurez 24 heures pour cliquer sur le lien envoyé à la nouvelle adresse email pour confirmer le changement."
+
+msgid "Resend account informations to this email address"
+msgstr "Renvoyer les informations du compte à cette adresse email"
+

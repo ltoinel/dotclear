@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-11-05 04:35+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Kozlika <kozlika@free.fr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+
+msgid "Add XML Sitemaps"
+msgstr "Ajoutez des Sitemaps XML à votre blog"
+
+#: _admin.php:13
+msgid "Sitemaps"
+msgstr "Sitemaps"
+
+#: index.php:14
+msgid "undefined"
+msgstr "non définie"
+
+#: index.php:15
+msgid "always"
+msgstr "toujours"
+
+#: index.php:16
+msgid "hourly"
+msgstr "horaire"
+
+#: index.php:17
+msgid "daily"
+msgstr "quotidienne"
+
+#: index.php:18
+msgid "weekly"
+msgstr "hebdomadaire"
+
+#: index.php:19
+msgid "monthly"
+msgstr "mensuelle"
+
+#: index.php:20
+msgid "never"
+msgstr "jamais"
+
+#: index.php:24
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+#: index.php:25
+msgid "Feeds"
+msgstr "Fils de syndication"
+
+#: index.php:26
+msgid "Posts"
+msgstr "Billets"
+
+#: index.php:27
+msgid "Pages"
+msgstr "Pages"
+
+#: index.php:28
+msgid "Categories"
+msgstr "Catégories"
+
+#: index.php:103
+msgid "Response does not seem OK"
+msgstr "La réponse ne semble pas être OK"
+
+#: index.php:105
+msgid "success"
+msgstr "Succès"
+
+#: index.php:108
+msgid "Failure"
+msgstr "Échec"
+
+#: index.php:111
+msgid "Ping(s) sent"
+msgstr "Ping(s) envoyé(s)"
+
+#: index.php:117
+msgid "New preferences saved"
+msgstr "Les nouvelles préférences ont été enregistrées"
+
+#: index.php:121
+msgid "Configuration successfully updated."
+msgstr "Configuration mise à jour avec succès."
+
+#: index.php:128
+#: index.php:132
+msgid "XML Sitemaps"
+msgstr "Sitemaps XML"
+
+#: index.php:135
+msgid "Configuration"
+msgstr "Configuration"
+
+#: index.php:141
+msgid "Enable sitemaps"
+msgstr "Permettre les sitemaps"
+
+#: index.php:146
+msgid "For your information"
+msgstr "Pour votre information"
+
+#: index.php:148
+msgid "This blog's Sitemap URL:"
+msgstr "URL du Sitemap de ce blog :"
+
+#: index.php:153
+msgid "Elements to integrate"
+msgstr "Éléments à intégrer"
+
+#: index.php:165
+msgid "Priority"
+msgstr "Priorité"
+
+#: index.php:170
+msgid "Periodicity"
+msgstr "Fréquence"
+
+#: index.php:182
+msgid "Save configuration"
+msgstr "Enregistrer la configuration"
+
+#: index.php:184
+#: index.php:214
+msgid "Ping search engines"
+msgstr "Pinguer les moteurs de recherche"
+
+#: index.php:191
+msgid "Search engines notification"
+msgstr "Notification des moteurs de recherche"
+
+#: index.php:194
+msgid "Available search engines"
+msgstr "Moteurs de recherche disponibles"
+
+#: index.php:212
+msgid "Save preferences"
+msgstr "Enregistrer les préférences"
+
+#~ msgid "Submit failed - HTTP Response code :"
+#~ msgstr "Echec de la soumission - Code de réponse HTTP :"
+#~ msgid "Your sitemap has been resubmitted correctly (%s)"
+#~ msgstr "Votre sitemap a été re-soumise correctement (%s)"
+#~ msgid "Ping Google"
+#~ msgstr "Pinguer Google"
+#~ msgid "Ping Live Search"
+#~ msgstr "Pinguer Live Search"
+#~ msgid "Ping Yahoo Search"
+#~ msgstr "Pinguer Yahoo Search"
+

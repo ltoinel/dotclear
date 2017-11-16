@@ -1,0 +1,65 @@
+﻿{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+<title>{{tpl:EntryTitle encode_html="1"}}</title>
+  
+{{tpl:include src="fragments/_meta.html"}}
+<link rel="canonical" href="{{tpl:EntryURL}}" />
+<link rel="alternate" type="application/rss+xml" title="Comments" href="{{tpl:BlogFeedURL type="rss2"}}/comments/{{tpl:EntryID}}" />
+<link rel="alternate" type="application/atom" title="Comments" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" />
+
+{{tpl:include src="fragments/_opengraph-article.html"}}
+
+<tpl:EntryIf extended="1">
+<meta name="description" property="og:description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryCategory}}: {{tpl:EntryExcerpt encode_html="1" remove_html="1" cut_string="180"}}" />
+</tpl:EntryIf>
+<tpl:EntryIf extended="0">
+<meta name="description" property="og:description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryCategory}}: {{tpl:EntryContent full="0" encode_html="1" remove_html="1" cut_string="155"}}" />
+</tpl:EntryIf>
+
+{{tpl:include src="fragments/_head.html"}}
+ 
+</head>
+
+<body>
+{{tpl:EntryPingData}}
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-8">
+  
+  <!-- # Post entry-->
+  {{tpl:include src="fragments/_entry.html"}}
+
+  <!-- # Post connexes-->
+  {{tpl:include src="fragments/_connexes.html"}}
+
+  <!-- # Pager -->
+  {{tpl:include src="fragments/_pager.html"}}
+
+  <!-- # Widget Custom --> 
+  {{tpl:Widgets type="custom"}}
+   
+  <!-- # Annexes -->
+  {{tpl:include src="fragments/_annexes.html"}}
+  
+  </div><!-- End #content -->
+  
+  {{tpl:include src="fragments/_sidebar.html"}}
+  
+</div> <!-- End #row -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+
+    <!-- # Comment form -->
+    <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" class="form-horizontal">
+
+      <h3>{{tpl:lang Add a comment}}</h3>
+        <!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
+        {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
+        
+	    <tpl:SysIfFormError>
+		  <div class="alert alert-error">{{tpl:SysFormError}}</div>
+		</tpl:SysIfFormError>
+		
+		<tpl:SysIfCommentPublished>
+		  <div class="alert alert-success">{{tpl:lang Your comment has been published.}}</div>
+		</tpl:SysIfCommentPublished>
+		
+		<tpl:SysIfCommentPending>
+		  <div class="alert alert-info">{{tpl:lang Your comment has been submitted and will be reviewed for publication.}}</div>
+		</tpl:SysIfCommentPending>
+    	
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
+			 <div class="col-md-5 input-group">
+			  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			  <input name="c_name" id="c_name" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewName encode_html="1"}}" />
+			</div>
+		 </div>
+  
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
+			 <div class="col-md-5 input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				<input name="c_mail" id="c_mail" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewEmail encode_html="1"}}"/>
+			 </div>
+		 </div>
+        
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
+			 <div class="col-md-5 input-group">
+			  <span class="input-group-addon"><i class="glyphicon glyphicon-share"></i></span>
+			  <input name="c_site" id="c_site" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewSite encode_html="1"}}"/>
+		  	 </div>
+		 </div>
+        
+		<div class="form-group">
+			<label class="col-md-3 control-label" for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
+			<div class="col-md-9 input-group">
+			    <textarea name="c_content" id="c_content" class="col-md-12 form-control" rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+			</div>
+		 </div>
+        
+        <p style="display:none"><input name="c_email" type="text" size="30" maxlength="255" value="" /></p>
+        
+        <p class="form-help">{{tpl:CommentHelp}}</p>
+        
+        <!-- # --BEHAVIOR-- publicCommentFormAfterContent -->
+        {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
+ 
+		<tpl:IfCommentPreview>
+		<div id="pr">
+		  <h3>{{tpl:lang Your comment}}</h3>
+		  <dl>
+			<dd class="comment-preview">{{tpl:CommentPreviewContent}}</dd>
+		  </dl>
+		  <button type="submit" class="btn btn-primary">{{tpl:lang send}}</button>
+		</div>
+		</tpl:IfCommentPreview>
+	 
+      
+	  <div class="form-actions">
+		 <button type="submit" class="btn btn-primary" value="{{tpl:lang send}}"><i class="glyphicon glyphicon-send icon-white"></i> {{tpl:lang send}}</button>	  
+		 <button type="submit" name="preview" class="btn btn-default" value="{{tpl:lang preview}}"><i class="glyphicon glyphicon-eye-open icon-white"></i> {{tpl:lang preview}}</button>
+	  </div>
+	  
+    </form>

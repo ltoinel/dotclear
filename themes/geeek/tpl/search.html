@@ -1,0 +1,61 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+  <title>{{tpl:lang Search}} - {{tpl:SysSearchString encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+
+  {{tpl:include src="fragments/_meta.html"}}
+  <meta name="robots" content="noindex">
+	
+  {{tpl:include src="fragments/_head.html"}}
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-12">
+  
+  <div id="content-info">
+    <h2>{{tpl:lang Search}}</h2>
+    <tpl:SysIf search_count="==0">
+      <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned no result."}}</p>
+    </tpl:SysIf>
+    <tpl:SysIf search_count="==1">
+      <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."}}</p>
+    </tpl:SysIf>
+    <tpl:SysIf search_count="&gt;1">
+      <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."}}</p>
+    </tpl:SysIf>
+  </div>
+
+  <ul class="entry-cards">
+  <tpl:Entries>
+
+    <!-- # Post entry-->
+    {{tpl:include src="fragments/_entry-card.html"}}
+
+        <!-- # Pagination -->
+    {{tpl:include src="fragments/_pagination.html"}}
+
+  </tpl:Entries>
+  </ul>
+
+  </div> <!-- End #content -->
+  
+  
+</div> <!-- End #row -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

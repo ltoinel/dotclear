@@ -1,0 +1,54 @@
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- CSS Loading -->
+<link rel="stylesheet"  href="{{tpl:BlogThemeURL}}/css/geeek.min.css" media="screen">
+
+<!-- OneSignal push notification -->
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: "817af342-4a90-43e1-8bf1-31da63cd2d62",
+      autoRegister: true,
+      persistNotification: false,
+      notifyButton: {
+        enable: true, /* Set to false to hide */
+        size: 'large',
+        prenotify: true,
+        showCredit: false, /* Hide the OneSignal logo */
+        text: {
+            'tip.state.unsubscribed': "Souscrire aux notifications du blog",
+            'tip.state.subscribed': "Vous avez souscrit aux notifications du blog",
+            'tip.state.blocked': "Vous avez bloqué les notifications du blog",
+            'message.prenotify': "Cliquez pour activer les notifications du blog",
+            'message.action.subscribed': "Merci de votre inscription !",
+            'message.action.resubscribed': "Vous êtes déjà inscrit aux notifications du blog",
+            'message.action.unsubscribed': "Vous ne recevrez plus de notifications du blog",
+            'dialog.main.title': "Configurez les notifications",
+            'dialog.main.button.subscribe': "S'ABONNER",
+            'dialog.main.button.unsubscribe': "SE DESABONNER",
+            'dialog.blocked.title': "Débloquer les notifications",
+            'dialog.blocked.message': "Suivez ces instructions pour activer les notifications:"
+        },
+	 displayPredicate: function() {
+            return OneSignal.isPushNotificationsEnabled()
+                .then(function(isPushEnabled) {
+                    /* The user is subscribed, so we want to return "false" to hide the notify button */
+                    return !isPushEnabled;
+                });
+        },
+      }
+    }]);
+</script>
+
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-605163-4', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+{{tpl:SysBehavior behavior="publicHeadContent"}}

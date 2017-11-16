@@ -1,0 +1,28 @@
+  <tpl:EntryIf show_comments="1">
+    <tpl:Comments>
+    <tpl:CommentsHeader>
+    <div id="comments">
+      <dl>
+    </tpl:CommentsHeader>
+      <dt id="c{{tpl:CommentID}}" class="{{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}" itemprop="comment" itemscope itemtype="http://schema.org/Comment"><a
+      href="#c{{tpl:CommentID}}" class="comment-number">{{tpl:CommentOrderNumber}}.</a>
+      {{tpl:lang On}} <span itemprop="datePublished">{{tpl:CommentDate}}</span>, {{tpl:CommentTime}}
+      {{tpl:lang by}} <span itemprop="creator" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{tpl:CommentAuthor}}</span></span></dt>
+      
+      <dd class="{{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
+      <!-- # --BEHAVIOR-- publicCommentBeforeContent -->
+      {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
+      
+	<img src="{{tpl:BlogThemeURL}}/img/unknown.jpg" alt="{{tpl:CommentAuthorMailMD5}}" class="gravatar img-polaroid" />
+	  
+      	{{tpl:CommentContent}}
+      
+      <!-- # --BEHAVIOR-- publicCommentAfterContent -->
+      {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+      </dd>
+    <tpl:CommentsFooter>
+      </dl>
+    </div>
+    </tpl:CommentsFooter>
+    </tpl:Comments>
+  </tpl:EntryIf>

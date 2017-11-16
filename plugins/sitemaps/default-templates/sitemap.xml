@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<tpl:SitemapEntries>
+	<url>
+		<loc>{{tpl:SitemapEntryLoc}}</loc>
+		<tpl:SitemapEntryIf has_attr="priority">
+		<priority>{{tpl:SitemapEntryPriority}}</priority>
+		</tpl:SitemapEntryIf>
+		<tpl:SitemapEntryIf has_attr="frequency">
+		<changefreq>{{tpl:SitemapEntryFrequency}}</changefreq>
+		</tpl:SitemapEntryIf>
+		<tpl:SitemapEntryIf has_attr="lastmod">
+		<lastmod>{{tpl:SitemapEntryLastmod}}</lastmod>
+		</tpl:SitemapEntryIf>
+	</url>
+</tpl:SitemapEntries>
+</urlset>

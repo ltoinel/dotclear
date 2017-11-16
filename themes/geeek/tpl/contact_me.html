@@ -1,0 +1,109 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+  <title>{{tpl:BlogName encode_html="1"}} - Contact</title>
+
+  {{tpl:include src="fragments/_meta.html"}}
+  
+  {{tpl:include src="fragments/_head.html"}}
+ 
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-8">
+ 
+  <article class="entry">
+  <h1 class="entry-title">{{tpl:ContactMePageTitle encode_html="1"}}</h1>
+  
+  <div id="contact">
+  
+  <tpl:ContactMeIf sent="1">{{tpl:ContactMeMsgSuccess}}</tpl:ContactMeIf>
+  
+  <tpl:ContactMeIf error="1">{{tpl:ContactMeMsgError}}</tpl:ContactMeIf>
+  
+  <tpl:ContactMeIf sent="0">
+    {{tpl:ContactMeFormCaption}}
+    <form action="{{tpl:ContactMeURL}}" method="post" id="comment-form" class="form-horizontal">
+  
+		<div class="form-group">
+			<label class="col-lg-3 control-label" for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
+			<div class="col-lg-5 input-group">
+			  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			  <input name="c_name" id="c_name" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:ContactMeName encode_html="1"}}" />
+			</div>
+		 </div>
+  
+		<div class="form-group">
+			<label class="col-lg-3 control-label" for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
+			<div class="col-lg-5 input-group">
+				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+				<input name="c_mail" id="c_mail" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:ContactMeEmail encode_html="1"}}"/>
+			</div>
+		 </div>
+        
+		<div class="form-group">
+			<label class="col-lg-3 control-label" for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
+			 <div class="col-lg-5 input-group">
+			  <span class="input-group-addon"><i class="glyphicon glyphicon-share"></i></span>
+			  <input name="c_site" id="c_site" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:ContactMeSite encode_html="1"}}"/>
+			</div>
+		 </div>
+		 
+		<div class="form-group">
+			<label class="col-lg-3 control-label" for="c_subject">{{tpl:lang Subject}}&nbsp;:</label>
+			<div class="col-lg-5 input-group">
+			  <span class="input-group-addon"><i class="glyphicon glyphicon-bullhorn"></i></span>
+			  <input name="c_subject" id="c_subject" class="form-control" type="text" size="30" maxlength="255" value="{{tpl:ContactMeSubject encode_html="1"}}"/>
+			</div>
+		 </div>
+        
+		
+		<div class="form-group">
+			<label class="col-lg-3 control-label" for="c_message">{{tpl:lang Message}}&nbsp;:</label>
+			<div class="col-lg-9 input-group">
+		  		<textarea name="c_message" id="c_message" class="form-control col-lg-12" rows="7">{{tpl:ContactMeMessage raw="1" encode_html="1"}}</textarea>	
+			</div>
+		 </div>
+		 
+        
+        <p style="display:none"><input name="f_mail" type="text" size="30"
+        maxlength="255" value="" /></p>
+
+		      
+	  <div class="form-actions">
+		 <button type="submit" class="btn btn-primary" value="{{tpl:lang send}}"><i class="glyphicon glyphicon-send"></i> {{tpl:lang send}}</button>	  
+	  </div>
+
+    </form>
+  </tpl:ContactMeIf>
+ 
+    </div><!-- End #contact -->
+
+   </article>
+	
+  </div><!-- End #content -->
+  
+  {{tpl:include src="fragments/_sidebar.html"}}
+  
+</div> <!-- End #main -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>
+
+
+

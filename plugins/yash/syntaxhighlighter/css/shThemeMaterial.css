@@ -1,0 +1,120 @@
+/**
+ * Material
+ */
+.syntaxhighlighter {
+	background-color: rgb(38,50,56) !important;
+}
+.syntaxhighlighter ::selection {
+	background: #373b41 !important;
+	color: #c5c8c6 !important;
+}
+.syntaxhighlighter td {
+	padding: 0;
+}
+.syntaxhighlighter .line.alt1 {
+	background-color: rgb(38,50,56) !important;
+}
+.syntaxhighlighter .line.alt2 {
+	background-color: rgb(38,50,56) !important;
+}
+.syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+	background-color: rgb(38,50,56) !important;
+}
+.syntaxhighlighter .line.highlighted.number {
+	color: #94A2A2 !important;
+}
+.syntaxhighlighter table caption {
+	color: #94A2A2 !important;
+/*	background-color: #4B4C4F !important; */
+	border-bottom: 1px solid #666767 !important;
+}
+.syntaxhighlighter table td.gutter .line,
+.syntaxhighlighter table td.code .line {
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+}
+.syntaxhighlighter .gutter {
+	text-align: right;
+	color: #767676 !important;
+}
+.syntaxhighlighter .gutter .line {
+	padding-right: 10px;
+	background-color: rgb(38,50,56) !important;
+	border-right: 1px solid #666767 !important;
+}
+/*.syntaxhighlighter table td.gutter .line {
+	font-size: .8rem !important;
+	padding-top: .15rem !important;
+	padding-bottom: .1rem !important;
+}*/
+.syntaxhighlighter .gutter .line.highlighted {
+	background-color: rgb(38,50,56) !important;
+/*	color: #c5c8c6 !important;*/
+}
+.syntaxhighlighter.printing .line .content {
+	border: none !important;
+}
+.syntaxhighlighter.collapsed {
+	overflow: visible !important;
+}
+.syntaxhighlighter.collapsed .toolbar {
+	background-color: rgb(38,50,56) !important;
+	background: #b5bd68 !important;
+}
+.syntaxhighlighter.collapsed .toolbar a {
+	background-color: rgb(38,50,56) !important;
+}
+.syntaxhighlighter.collapsed .toolbar a:hover {
+	color: #cc6666 !important;
+}
+.syntaxhighlighter .toolbar {
+	background: #b5bd68 !important;
+	border: none !important;
+}
+.syntaxhighlighter .toolbar a {
+/*	background-color: rgb(38,50,56) !important; */
+}
+.syntaxhighlighter .toolbar a:hover {
+	color: #94A2A2 !important;
+}
+.syntaxhighlighter .plain, .syntaxhighlighter .plain a {
+	color: rgb(178,204,214) !important;
+}
+.syntaxhighlighter .comments, .syntaxhighlighter .comments a {
+	color: rgb(84,110,122) !important;
+}
+.syntaxhighlighter .string, .syntaxhighlighter .string a {
+	color: rgb(195,232,141) !important;
+}
+.syntaxhighlighter .keyword {
+	color: rgb(199,146,234) !important;
+}
+.syntaxhighlighter .preprocessor {
+	color: rgb(199,146,234) !important;
+}
+.syntaxhighlighter .variable {
+	color: rgb(178,204,214) !important;
+}
+.syntaxhighlighter .value {
+	color: rgb(255,235,149) !important;
+}
+.syntaxhighlighter .functions {
+	color: rgb(112,214,255) !important;
+}
+.syntaxhighlighter .constants {
+	color: rgb(247,118,105) !important;
+}
+.syntaxhighlighter .script {
+	font-weight: bold !important;
+	color: #de935f !important;
+	background-color: none !important;
+}
+.syntaxhighlighter .color1, .syntaxhighlighter .color1 a {
+	color: #c5c8c6 !important;
+}
+.syntaxhighlighter .color2, .syntaxhighlighter .color2 a {
+	color: #F0C674 !important;
+}
+.syntaxhighlighter .color3, .syntaxhighlighter .color3 a {
+	color: #cc6666 !important;
+}

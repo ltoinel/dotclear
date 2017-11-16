@@ -1,0 +1,46 @@
+INSTALL
+
+unzip the archive and put the file on your server and then call it in your PHP files :
+
+if you install it on a subfolder :
+require_once(dirname(__FILE__).'/php-xhtml-table/class.table.php');
+
+if you install it at the same level than your file :
+require_once(dirname(__FILE__).'/class.table.php');
+
+SYNTAX
+
+<?php
+$table = new table();
+$table->caption('People');
+
+# we open the head part
+$table->part('head');
+$table->headers('Name',array('Age'=>'title="in years"'),'Country');
+
+# we open the body part, head part is closed
+$table->part('body','style="color:blue;"');
+$table->row('');
+$table->cells('John',23,'USA');
+$table->row('');
+$table->cell('Jack');
+$table->cell('42');
+$table->cell('Mexico');
+$table->row('');
+$table->cell('Philip J. Fry');
+$table->cell('23');
+$table->cell('India');
+
+$table->part('foot','style="color:Violet;"');
+$table->cell("Total :");
+$table->cell(23+42+23);
+$table->cell();
+
+# we can reopen a closed part and add rows
+# the extra HTML of the body is updated
+$table->part('body','style="color:Green;"');
+$table->row('');
+$table->cells('Igor',43,'Russia');
+
+echo($table);
+?>

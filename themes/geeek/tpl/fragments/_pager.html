@@ -1,0 +1,12 @@
+    <ul class="pager hidden-xs">
+	<tpl:EntryPrevious>
+		  <li class="previous">
+			<a href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" rel="prev" accesskey="j"><i class="glyphicon glyphicon-chevron-left"></i> {{tpl:EntryTitle encode_html="1" cut_string="50"}}</a>
+		  </li>
+	</tpl:EntryPrevious>
+	<tpl:EntryNext>	
+		 <li class="next">
+			<a href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" rel="next" accesskey="k">{{tpl:EntryTitle encode_html="1" cut_string="50"}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+		</li>
+	</tpl:EntryNext>
+   </ul>

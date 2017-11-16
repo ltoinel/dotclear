@@ -1,0 +1,5 @@
+//post.js
+var post_remember_str = 'Se souvenir de moi';
+$(function(){function d(a){if(!a){return false}var b=a.split("\n");if(b.length!=3){c();return false}return b}function c(){$.cookie("comment_info","",{expires:-30,path:"/"})}function b(){var a=$("#c_name").val();var b=$("#c_mail").val();var c=$("#c_site").val();var d=$("link[rel=top]").attr("href");if(!d){d="/"}else{d=d.replace(/.*:\/\/[^\/]*([^?]*).*/g,"$1")}$.cookie("comment_info",a+"\n"+b+"\n"+c,{expires:60,path:d})}$("#comment-form div:has(button[type=submit][name=preview])").before('<div class="checkbox"><label for="c_remember" class="control-label"><input type="checkbox" id="c_remember" name="c_remember" /> '+post_remember_str+'</label></div>');var a=d($.cookie("comment_info"));if(a!=false){$("#c_name").val(a[0]);$("#c_mail").val(a[1]);$("#c_site").val(a[2]);$("#c_remember").attr("checked","checked")}$("#c_remember").click(function(){if(this.checked){b()}else{c()}});$("#c_name").change(function(){if($("#c_remember").get(0).checked){b()}});$("#c_mail").change(function(){if($("#c_remember").get(0).checked){b()}});$("#c_site").change(function(){if($("#c_remember").get(0).checked){b()}})})
+
+

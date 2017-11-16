@@ -1,0 +1,41 @@
+<tpl:EntryIf show_comments="1" pings_active="1" has_attachment="1" operator="or">
+ <div class="tabbable" id="annexe"> 
+	  <ul class="nav nav-tabs">
+		<tpl:EntryIf show_comments="1"><li class="active"><a href="#tab1" data-toggle="tab"><i class="glyphicon glyphicon-comment"></i> {{tpl:EntryCommentCount}}</a></li></tpl:EntryIf>
+		<tpl:EntryIf pings_active="1"><li><a href="#tab2" data-toggle="tab"><i class="glyphicon glyphicon-retweet"></i> {{tpl:EntryPingCount}}</a></li></tpl:EntryIf>
+		<tpl:EntryIf has_attachment="1"><li><a href="#tab3" data-toggle="tab"><i class="glyphicon glyphicon-download-alt"></i> {{tpl:EntryAttachmentCount}}</a></li></tpl:EntryIf>
+	  </ul>
+	  
+	  <div class="tab-content">
+	  
+	  <tpl:EntryIf show_comments="1">
+		<div class="tab-pane fade in active" id="tab1">
+		   <!-- # Comments -->
+		  {{tpl:include src="fragments/_comments.html"}}
+		  
+		  <!-- # Comment form -->
+		  <tpl:EntryIf comments_active="1">
+		    {{tpl:include src="fragments/_comment-form.html"}}  
+		  </tpl:EntryIf>
+
+		</div>
+	  </tpl:EntryIf>
+	  
+	  <tpl:EntryIf pings_active="1">	  
+		<div class="tab-pane fade in" id="tab2">
+		  <!-- # Trackbacks -->
+		  {{tpl:include src="fragments/_trackbacks.html"}}
+		</div>
+	  </tpl:EntryIf>
+	 
+	  <tpl:EntryIf has_attachment="1">
+		<div class="tab-pane fade in" id="tab3">
+		  <!-- # Attachments -->
+		  {{tpl:include src="fragments/_attachment.html"}}
+		</div>	
+	  </tpl:EntryIf>
+	
+   </div> <!-- End #tab-content -->
+
+  </div> <!-- End #annexe -->
+</tpl:EntryIf>

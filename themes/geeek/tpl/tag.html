@@ -1,0 +1,59 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+  <title>{{tpl:lang Tag}} - {{tpl:TagID}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+
+  {{tpl:include src="fragments/_meta.html"}}
+  
+  {{tpl:include src="fragments/_head.html"}}
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-12">
+  
+  <div id="content-info">
+    <h2>{{tpl:lang Tag}} - {{tpl:TagID}}</h2>
+    
+    <p><a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}"
+    title="{{tpl:lang This tag's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
+    
+    <tpl:SysIf operator="or" comments_active="1" pings_active="1">
+    - <a type="application/atom+xml" href="{{tpl:TagFeedURL type="atom"}}/comments"
+    title="{{tpl:lang This tag's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
+    </tpl:SysIf>
+    </p>
+  </div>
+ 
+  <ul class="entry-cards">
+  <tpl:Entries>
+
+    <!-- # Post entry-->
+    {{tpl:include src="fragments/_entry-card.html"}}
+
+        <!-- # Pagination -->
+    {{tpl:include src="fragments/_pagination.html"}}
+
+  </tpl:Entries>
+  </ul>
+ 
+  </div> <!-- End #content -->
+  
+</div> <!-- End #row -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

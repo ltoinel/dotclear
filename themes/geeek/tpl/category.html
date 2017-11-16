@@ -1,0 +1,73 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+
+  <title>{{tpl:CategoryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+
+  {{tpl:include src="fragments/_meta.html"}}
+
+  {{tpl:include src="fragments/_head.html"}}
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-12">
+
+  <div id="content-info">
+    	
+    <ol class="breadcrumb">
+	<li><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+	<tpl:CategoryParents>
+		<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
+	</tpl:CategoryParents>
+    	<li class="active">{{tpl:CategoryTitle encode_html="1"}}</li>
+	
+	<tpl:CategoryFirstChildren>
+	<tpl:CategoriesHeader>
+	<li class="dropdown">
+        	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-plus-sign"></span></a>
+        	<ul class="dropdown-menu">
+	</tpl:CategoriesHeader>
+		  	<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
+	<tpl:CategoriesFooter>
+		</ul>
+      	</li>
+	<tpl:CategoriesFooter>
+	</tpl:CategoryFirstChildren>
+
+    </ol>
+
+  </div>
+
+  <ul class="entry-cards">  
+  <tpl:Entries>
+
+    <!-- # Post entry-->
+    {{tpl:include src="fragments/_entry-card.html"}}
+    
+	<!-- # Pagination -->
+    {{tpl:include src="fragments/_pagination.html"}}
+   
+  </tpl:Entries>
+  </ul>
+ 
+  </div> <!-- End #content -->
+  
+</div> <!-- End #row -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

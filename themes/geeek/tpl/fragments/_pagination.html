@@ -1,0 +1,16 @@
+<tpl:EntriesFooter>
+  <tpl:Pagination>
+	<ul class="pager">
+		<tpl:PaginationIf end="0">
+		  <li class="previous">
+			<a href="{{tpl:PaginationURL offset="+1"}}" rel="prev" accesskey="j"><i class="glyphicon glyphicon-chevron-left"></i> {{tpl:lang previous entries}}</a>
+		  </li>
+		</tpl:PaginationIf>
+		<tpl:PaginationIf start="0">
+		 <li class="next">
+			<a href="{{tpl:PaginationURL offset="-1"}}" rel="next" accesskey="k">{{tpl:lang next entries}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+		</li>
+		</tpl:PaginationIf>
+	</ul>
+  </tpl:Pagination>
+</tpl:EntriesFooter>

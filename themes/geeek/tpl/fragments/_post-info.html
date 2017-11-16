@@ -1,0 +1,13 @@
+<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+  <p class="entry-info-co pull-right">
+</tpl:EntryIf>
+<tpl:EntryIf show_comments="1">
+  <a href="{{tpl:EntryURL}}#comments" class="comment_count"><i class="glyphicon glyphicon-comment"></i> <span itemprop="commentCount">{{tpl:EntryCommentCount none="0" one="1" more="%s"}}</span></a>
+</tpl:EntryIf>
+<tpl:EntryIf show_pings="1">
+  <a href="{{tpl:EntryURL}}#pings" class="ping_count"><i class="glyphicon glyphicon-retweet"></i> {{tpl:EntryPingCount none="0" one="1" more="%s"}}</a></tpl:EntryIf>
+<tpl:EntryIf has_attachment="1">
+  <a href="{{tpl:EntryURL}}#attachments" class="attach_count"><i class="glyphicon glyphicon-file"></i> {{tpl:EntryAttachmentCount none="0" one="1" more="%s"}}</a></tpl:EntryIf>
+<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+  </p>
+</tpl:EntryIf>

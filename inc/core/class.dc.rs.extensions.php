@@ -716,8 +716,9 @@ class rsExtComment
 	{
 		return
 		$rs->comment_email && $rs->comment_site &&
-		$rs->comment_email == $rs->user_email &&
-		$rs->comment_site == $rs->user_url;
+		$rs->comment_email == $rs->user_email;
+		//@HACK
+        //$rs->comment_site == $rs->user_url;
 	}
 }
 

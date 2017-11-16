@@ -1,0 +1,33 @@
+  <tpl:EntryIf show_pings="1">
+    <div id="pings">
+    <h3>{{tpl:lang They posted on the same topic}}</h3>
+    <tpl:Pings>
+      <tpl:PingsHeader>
+      <dl>
+      </tpl:PingsHeader>
+        <dt id="c{{tpl:PingID}}" class="{{tpl:PingIfOdd}} {{tpl:PingIfFirst}}"><a href="#c{{tpl:PingID}}"
+        class="ping-number">{{tpl:PingOrderNumber}}.</a>
+        {{tpl:lang On}} {{tpl:PingDate}}, {{tpl:PingTime}}
+        {{tpl:lang by}} {{tpl:PingBlogName encode_html="1"}}</dt>
+        
+        <dd class="{{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+        <!-- # --BEHAVIOR-- publicPingBeforeContent -->
+        {{tpl:SysBehavior behavior="publicPingBeforeContent"}}
+        
+        <p><a href="{{tpl:PingAuthorURL}}"
+        {{tpl:PingNoFollow}}>{{tpl:PingTitle encode_html="1"}}</a></p>
+        {{tpl:PingContent}}
+        
+        <!-- # --BEHAVIOR-- publicPingAfterContent -->
+        {{tpl:SysBehavior behavior="publicPingAfterContent"}}
+        </dd>
+      <tpl:PingsFooter>
+      </dl>
+      </tpl:PingsFooter>
+    </tpl:Pings>
+    </div>
+  </tpl:EntryIf>
+  
+  <tpl:EntryIf pings_active="1">
+    <p id="ping-url">{{tpl:lang Trackback URL}}&nbsp;: <a href="{{tpl:EntryPingLink}}" rel="pingback">{{tpl:EntryPingLink}}</a></p>
+  </tpl:EntryIf>

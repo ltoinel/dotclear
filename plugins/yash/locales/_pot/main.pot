@@ -1,0 +1,234 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2 yash module\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-04 16:56+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../hg-plugins/yash/_admin.php:26 ../hg-plugins/yash/_admin.php:28
+#: ../hg-plugins/yash/index.php:112 ../hg-plugins/yash/index.php:120
+msgid "YASH"
+msgstr ""
+
+#: ../hg-plugins/yash/_admin.php:26
+msgid "Yet Another Syntax Highlighter"
+msgstr ""
+
+#: ../hg-plugins/yash/inc/yash.behaviors.php:203
+msgid "Highlighted Code"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:35
+msgid "Plain Text"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:36
+msgid "AppleScript"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:37
+msgid "ActionScript3"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:38
+msgid "Bash/shell"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:39
+msgid "ColdFusion"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:40
+msgid "C#"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:41
+msgid "C/C++"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:42
+msgid "CSS"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:43
+msgid "Delphi"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:44
+msgid "Diff/Patch"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:45
+msgid "Erlang"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:46
+msgid "Groovy"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:47
+msgid "Haxe"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:48
+msgid "Javascript/JSON"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:49
+msgid "Java"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:50
+msgid "JavaFX"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:51
+msgid "Perl"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:52
+msgid "PHP"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:53
+msgid "PowerShell"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:54
+msgid "Python"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:55
+msgid "Ruby"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:56
+msgid "SASS"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:57
+msgid "Scala"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:58
+msgid "SQL"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:59
+msgid "Tap"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:60
+msgid "TypeScript"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:61
+msgid "Visual Basic"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:62
+msgid "XML/XSLT/XHTML/HTML"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:63
+msgid "Yaml"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:69 ../hg-plugins/yash/index.php:73
+msgid "YASH - Syntax Selector"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:75
+msgid "Select the primary syntax of your code snippet."
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:126
+msgid "Django"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:127
+msgid "Eclipse"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:128
+msgid "Emacs"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:129
+msgid "Fade to gray"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:130
+msgid "Material"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:131
+msgid "MD Ultra"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:132
+msgid "Midnight"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:133
+msgid "RDark"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:134
+msgid "Solarized Dark"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:135
+msgid "Solarized Light"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:136
+msgid "Tomorrow Night"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:144
+msgid "Enable YASH"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:147
+msgid "Presentation"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:152
+msgid "Use custom CSS:"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:156
+msgid "You can use a custom CSS by providing its location."
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:157
+msgid "A location beginning with a / is treated as absolute, else it is treated as relative to the blog's current theme URL"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:161
+msgid "Hide gutter with line numbers"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:166
+msgid "SyntaxeHL compatibility mode"
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:169
+msgid "All SyntaxeHL languages is not supported by Yash (see documentation)."
+msgstr ""
+
+#: ../hg-plugins/yash/index.php:169
+msgid "Will be applied on future edition of posts containing SyntaxeHL macros (///[language]…///)."
+msgstr ""

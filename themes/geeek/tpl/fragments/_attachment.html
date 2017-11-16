@@ -1,0 +1,23 @@
+  <tpl:Attachments>
+    <tpl:AttachmentsHeader>
+      <div id="attachments">
+      <h3>{{tpl:lang Attachments}}</h3>
+      <ul>
+    </tpl:AttachmentsHeader>
+      <li class="{{tpl:AttachmentType}}">
+        <tpl:AttachmentIf is_mp3="1">
+          {{tpl:include src="cmp/_mp3_player.html"/}} - 
+        </tpl:AttachmentIf>
+        <tpl:AttachmentIf is_flv="1">
+	     {{tpl:include src="cmp/_flv_player.html"/}}
+	   </tpl:AttachmentIf>
+	   <tpl:AttachmentIf is_flv="0">
+	   	<a href="{{tpl:AttachmentURL}}"
+		title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
+        </tpl:AttachmentIf>
+      </li>
+    <tpl:AttachmentsFooter>
+      </ul>
+      </div>
+    </tpl:AttachmentsFooter>
+  </tpl:Attachments>

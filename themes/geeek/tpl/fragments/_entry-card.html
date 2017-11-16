@@ -1,0 +1,24 @@
+	<!-- Article -->
+	<li id="{{tpl:EntryID}}" class="col-md-4">
+
+		<div class="entry-card">
+			<div class="img-thumbnail">
+				<a href="{{tpl:EntryURL}}"  title="{{tpl:EntryTitle encode_html="1"}}">
+				<img src="{{tpl:EntryFirstImage no_tag="1" size="s" with_category="1"}}" alt="{{tpl:EntryTitle encode_html="1"}}"/>
+				</a>
+			</div>
+
+			<div class="entry-card-content">
+				<h1><a href="{{tpl:EntryURL}}"  title="{{tpl:EntryTitle encode_html="1"}}">{{tpl:EntryTitle encode_html="1"}}</a></h1>
+
+				<p>{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}…</p>
+
+			</div>
+
+			<div class="entry-card-meta">
+                        {{tpl:lang By}} <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a href="{{tpl:EntryAuthorURL}}" itemprop="url"><span itemprop="name">{{tpl:EntryAuthorCommonName}}</span></a></span> ::
+                        <time datetime="{{tpl:EntryDate iso8601="1"}}" itemprop="datePublished">{{tpl:EntryDate}}, {{tpl:EntryTime}}</time>
+                        </div>
+
+		</div>
+	</li>

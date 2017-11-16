@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/*
+Disallow: /trackback/*
+Disallow: /iphone/*
+Disallow: /feed/tag/*
+Disallow: /feed/category/*
+Disallow: /feed/rss2/comments/*
+Disallow: /feed/atom/comments/*
+Disallow: /subscribetocomments/*
+Disallow: /nimportequoi/*
+
+Sitemap: https://www.geeek.org/sitemap.xml
+

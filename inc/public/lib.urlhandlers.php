@@ -51,6 +51,10 @@ class dcUrlHandlers extends urlHandler
 		$_ctx =& $GLOBALS['_ctx'];
 		$core = $GLOBALS['core'];
 
+        // @HACK
+        analyze404($core, $_ctx);
+        // FIN @HACK
+	
 		header('Content-Type: text/html; charset=UTF-8');
 		http::head(404,'Not Found');
 		$core->url->type = '404';
@@ -77,7 +81,14 @@ class dcUrlHandlers extends urlHandler
 		return false;
 	}
 
-	protected static function serveDocument($tpl,$content_type='text/html',$http_cache=true,$http_etag=true)
+    protected static function serveDocument($tpl,$content_type='text/html',$http_cache=true,$http_etag=true)
+    {
+         // @HACK
+         serveAndCacheDocument($tpl,$content_type,$http_cache,$http_etag);
+        // @HACK END
+    }
+
+	protected static function serveDocumentOld($tpl,$content_type='text/html',$http_cache=true,$http_etag=true)
 	{
 		$_ctx =& $GLOBALS['_ctx'];
 		$core =& $GLOBALS['core'];
@@ -205,6 +216,11 @@ class dcUrlHandlers extends urlHandler
 	{
 		$n = self::getPageNumber($args);
 
+		//@HACK
+		if ($args && !startsWith($args,"page/")){
+			self::p404();
+		}
+		// FIN @HACK
 		if ($args && !$n)
 		{
 			# "Then specified URL went unrecognized by all URL handlers and
@@ -438,6 +454,16 @@ class dcUrlHandlers extends urlHandler
 				# Posting a comment
 				if ($post_comment)
 				{
+					// @HACK
+                    if (!empty($_POST['c_email'])) {
+                       http::head(412,'Precondition Failed');
+                       header('Content-Type: text/plain');
+                       echo "Thank-you spammer !";
+                       # Exits immediately the application to preserve the server.
+                        exit;
+                    }
+					// END @HACK
+
 					# Spam trap
 					if (!empty($_POST['f_mail'])) {
 						http::head(412,'Precondition Failed');

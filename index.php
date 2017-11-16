@@ -10,6 +10,10 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
+//@HACK
+require dirname(__FILE__).'/cache.php';
+//END @HACK
+
 if (isset($_SERVER['DC_BLOG_ID'])) {
 	define('DC_BLOG_ID',$_SERVER['DC_BLOG_ID']);
 } elseif (isset($_SERVER['REDIRECT_DC_BLOG_ID'])) {

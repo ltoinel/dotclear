@@ -1,0 +1,53 @@
+{{tpl:include src="fragments/_doctype_blog.html"}}
+<head>
+  
+  <title>{{tpl:lang Document not found}} - {{tpl:BlogName encode_html="1"}}</title>
+ 
+  {{tpl:include src="fragments/_meta.html"}}
+  <meta name="robots" content="noindex" />
+ 
+  {{tpl:include src="fragments/_head.html"}}
+</head>
+
+<body>
+
+{{tpl:include src="fragments/_top.html"}}
+
+<div class="container">
+
+<div class="row">
+
+  <div id="content" class="col-md-8">
+  
+  <div id="content-info">
+    <h2>Page non trouvée</h2>
+  </div>
+  
+  <div class="content-inner">
+    <p>La page que vous tentez d'accéder n'a pas été trouvée. Cette erreur est journalisée et sera analysée par moi-même ;-)</p>
+
+    <script type="text/javascript">
+  	var GOOG_FIXURL_LANG = 'fr';
+  	var GOOG_FIXURL_SITE = 'https://www.geeek.org'
+    </script>
+    <script type="text/javascript" src="https://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
+    </script>
+
+  </div>
+  
+  </div><!-- End #content -->
+  
+  {{tpl:include src="fragments/_sidebar.html"}}
+  
+</div> <!-- End #row -->
+
+</div> <!-- End #container -->
+
+{{tpl:include src="fragments/_bottombar.html"}}
+
+{{tpl:include src="fragments/_footer.html"}}
+
+{{tpl:include src="fragments/_asyncjs.html"}}
+
+</body>
+</html>

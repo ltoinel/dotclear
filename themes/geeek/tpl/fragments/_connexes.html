@@ -1,0 +1,15 @@
+<div id="connexes" class="row">
+  <h3>:: Ces articles devraient aussi vous intéresser ::</h3>
+  <tpl:Entries category="#self ?sub" no_context="1" selected="1" lastn="3">
+  <div class="col-sm-6 col-md-4">
+    <div class="img-box">
+    <a href="{{tpl:EntryURL}}" class="img-thumbnail">
+        {{tpl:EntryFirstImage size="s" class="media-object"}}
+    </a>
+    </div>
+   <div class="caption">
+      <h4><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h4>
+    </div>
+  </div>
+  </tpl:Entries>
+</div>

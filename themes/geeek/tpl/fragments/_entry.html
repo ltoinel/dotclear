@@ -1,0 +1,71 @@
+	<!-- Article -->
+	<article id="{{tpl:EntryID}}" class="entry" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+		<meta itemprop="inLanguage" content="fr-FR"/>
+		<meta itemprop="dateModified" content="{{tpl:EntryDate  iso8601="1" upddt="true"}}" />
+		<meta itemprop="mainEntityOfPage" content="{{tpl:EntryURL}}" />
+		<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    			<meta itemprop="url" content="{{tpl:EntryFirstImage no_tag="1" size="m"}}">
+			<meta itemprop="width" content="780">
+ 			<meta itemprop="height" content="auto">
+		</span>
+
+		<header>
+
+			<!-- Title -->
+			<h1 class="entry-title" itemprop="headline"><a href="{{tpl:EntryURL}}" rel="bookmark" title="{{tpl:EntryTitle encode_html="1"}}" itemprop="url">{{tpl:EntryTitle encode_html="1"}}</a></h1>
+		
+			<!-- Meta Data -->	
+			<div class="entry-meta visible-md visible-lg">
+			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> <time datetime="{{tpl:EntryDate iso8601="1"}}" itemprop="datePublished">{{tpl:EntryDate}}, {{tpl:EntryTime}}</time>
+			<span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><a href="{{tpl:EntryAuthorURL}}" itemprop="url"><span itemprop="name">{{tpl:EntryAuthorCommonName}}</span></a></span> 
+			<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span> 
+			<span itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><a href="{{tpl:BlogURL}}" itemprop="url"><span itemprop="name">{{tpl:BlogName}}</span></a>
+				<span itemprop="logo" itemscope  itemtype="https://schema.org/ImageObject">
+					<img itemprop="url" src="https://static.geeek.org/themes/geeek/img/logo.png" alt="logo Geeek" class="hidden" />
+					<meta itemprop="width" content="260">
+            				<meta itemprop="height" content="91">
+				</span>
+			</span>
+			<tpl:EntryIf has_category="1">
+			   <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
+			</tpl:EntryIf>
+			</div>
+
+		</header>
+	
+		<div class="entry-content" itemprop="articleBody">	
+			<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+			{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+
+			<!-- # Entry with an excerpt -->
+			<tpl:EntryIf extended="1">
+			  {{tpl:EntryExcerpt}}
+			</tpl:EntryIf>
+
+			<!-- # Entry without excerpt -->
+			{{tpl:EntryContent}}
+			
+		    <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+			{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+		</div>
+	
+		<footer id="footer-{{tpl:EntryID}}" class="entry-footer">
+
+			<button class="btn btn-xs pull-right share-button" data-url="{{tpl:EntryURL}}" data-text="{{tpl:EntryTitle encode_html="1"}}">
+				<img src="{{tpl:BlogThemeURL}}/img/social-share.png" width="108" height="35" alt="social share"/>
+			</button>
+
+			{{tpl:include src="fragments/_post-info.html"}}
+
+			<!-- # Tags -->
+			<tpl:EntryTags>
+				<tpl:TagsHeader>
+					<ul class="post-tags hidden-xs" itemprop="keywords">
+						</tpl:TagsHeader>
+							<li><a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a></li>
+						<tpl:TagsFooter>
+					</ul>
+				</tpl:TagsFooter>
+			</tpl:EntryTags>
+		</footer>
+	</article>

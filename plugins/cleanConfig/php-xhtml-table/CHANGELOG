@@ -1,0 +1,99 @@
+Table 20091206 - 2009-12-06
+===========================================================
+* fixed bug by avoiding __toString() which don't always return a string
+	with PHP < 5.2.0
+
+Table 20090521 - 2009-05-21
+===========================================================
+* <tfoot> must be set before <body> in XHTML, see
+	http://www.yoursiteisvalid.com/validnews/writing-semantic-tables-thead-tbody-and-tfoot-924.html
+
+Table 20090110 - 2009-01-10
+===========================================================
+* optimization : oops, using double quotes instead of single quotes,
+	see http://www.phpbench.com/
+* updated project's title
+* removed TODO file, moved in the wiki
+
+Table 20081230 - 2008-12-30
+===========================================================
+* optimization : using single quotes instead of double quotes,
+	see http://www.phpbench.com/
+* improved Doxygen documentation
+* updated copyright year
+
+Table 20081009 - 2008-10-09
+===========================================================
+* optimization : replaced array_push($array,$str); by $array[] = $str;,
+	see http://fr2.php.net/manual/fr/function.array-push.php
+* fixed typos
+
+Table 20080709 - 2008-07-09
+===========================================================
+* added part class
+* fixed some stupid bugs ...
+* updated SYNTAX in INSTALL file
+* using double quotes instead of single quotes,
+	see http://www.phpbench.com/
+
+Table 20080706 - 2008-07-06
+===========================================================
+* added extra_html to part() and repeatHead()
+* improved get()
+
+Table 20080622 - 2008-06-22
+===========================================================
+* fixed bug with parts : head was the only usable part
+
+Table 20080427 - 2008-04-27
+===========================================================
+* added files CHANGELOG, INSTALL, TODO and gpl-3.0.txt
+* moved text from class.table.php to corresponding files
+
+Table 20080405 - 2008-04-05
+===========================================================
+* headers() calls part('head')
+* cells() calls part('body')
+
+Table 20071122 - 2007-11-22
+===========================================================
+* added __toString() function : can return the table
+
+Table 20071114 - 2007-11-14
+===========================================================
+* added show() function
+* removed str2tr(), str2th() and str2td() functions, replaced by tag()
+* fixed bug : closePart() calls closeRow()
+
+Table 20071112 - 2007-11-12
+===========================================================
+* added headers() and cells() function
+
+Table 20071110 - 2007-11-10
+===========================================================
+* added arg() function
+
+Table 20071110 - 2007-11-10
+===========================================================
+* closePart don't delete anymore the content of the closed part :
+	$this->{$this->part} .= implode('',$this->rows);
+* openPart calls closePart, openRow calls closeRow,
+	this allow to use a shorter syntax with only open* functions
+* IE bug fixed with headers
+* changed open* functions to short syntax (openRow() is now row())
+
+Table 20071108 - 2007-11-08
+===========================================================
+* repeatHead added
+
+Table 20071025 - 2007-10-25
+===========================================================
+* removed $class which was duplicate with $extra_html
+
+Table 200710* - 2007-10-*
+===========================================================
+* many changes
+
+Table 200710?? - 2007-10-??
+===========================================================
+* first version

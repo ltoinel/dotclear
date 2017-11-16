@@ -1,0 +1,81 @@
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: subscribeToComments 1.4-alpha1\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2010-08-30T14:15:40+00:00\n"
+"Last-Translator: Ubuntu\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Subscribe to comments"
+msgstr "Abonnement aux commentaires"
+
+msgid "<img src=\"images/check-off.png\" alt=\"%1$s\" title=\"%1$s\" /> Notification email not sent, click on <strong>%2$s</strong>."
+msgstr "<img src=\"images/check-off.png\" alt=\"%1$s\" title=\"%1$s\" /> Email de notification non envoyé, cliquez sur <strong>%2$s</strong>."
+
+msgid "not sent"
+msgstr "non envoyé"
+
+msgid "<img src=\"images/check-on.png\" alt=\"%1$s\" title=\"%1$s\" /> Notification email sent."
+msgstr "<img src=\"images/check-on.png\" alt=\"%1$s\" title=\"%1$s\" /> Email de notification envoyé."
+
+msgid "Invalid email address or key."
+msgstr "Adresse email ou clé invalide."
+
+msgid "Invalid post ID."
+msgstr "Identifiant du billet invalide."
+
+msgid "Invalid post."
+msgstr "Billet invalide."
+
+msgid "This email address already exists."
+msgstr "Cette adresse email existe déjà."
+
+msgid "Reload the page"
+msgstr "Recharger la page"
+
+msgid "Invalid key."
+msgstr "Clé invalide."
+
+msgid "Link expired, request another email."
+msgstr "Lien périmé, demandez un autre email."
+
+msgid "Invalid email address."
+msgstr "Adresse email invalide."
+
+msgid "Receive following comments by email"
+msgstr "Recevoir les commentaires suivants par email"
+
+msgid "%s's page URL"
+msgstr "URL de la page %s"
+
+msgid "New email address"
+msgstr "Nouvelle adresse email"
+
+msgid "no subscriber"
+msgstr "pas d'abonné"
+
+msgid "This will send a email, if you don't receive it, try to <a href=\"%s\">change the way Dotclear send emails</a>."
+msgstr "Ceci enverra un email, si vous ne le recevez pas, essayez de <a href=\"%s\">changer la façon dont Dotclear envoie les emails</a>"
+
+msgid "Example:"
+msgstr "Exemple&nbsp;:"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "invert selection"
+msgstr "inverser la sélection"
+
+msgid "Logout"
+msgstr "Déconnexion"
+
+msgid "select all"
+msgstr "tout sélectionner"
+
+msgid "Subscribe to"
+msgstr "S'abonner à"
+

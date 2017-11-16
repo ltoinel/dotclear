@@ -127,7 +127,7 @@ if (!is_file(DC_RC_PATH))
 
 require DC_RC_PATH;
 
-//*== DC_DEBUG ==
+/*== DC_DEBUG ==
 if (!defined('DC_DEBUG')) {
 	define('DC_DEBUG',true);
 }
@@ -283,6 +283,13 @@ $core->url->registerDefault(array('dcUrlHandlers','home'));
 $core->url->registerError(array('dcUrlHandlers','default404'));
 $core->url->register('lang','','^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$',array('dcUrlHandlers','lang'));
 $core->url->register('post','post','^post/(.+)$',array('dcUrlHandlers','post'));
+
+// @HACK
+//$core->url->register('lang','','^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$',array('dcUrlHandlers','lang'));
+//$core->url->register('post','post','^post/(.+)$',array('dcUrlHandlers','post'));
+$core->url->register('post','post','^([0-9]{4}/(.)+)$',array('dcUrlHandlers','post'));
+$core->url->register('post2','post2','^([a-z0-9-_]+.html)$',array('dcUrlHandlers','post'));
+// @HACK END
 $core->url->register('preview','preview','^preview/(.+)$',array('dcUrlHandlers','preview'));
 $core->url->register('category','category','^category/(.+)$',array('dcUrlHandlers','category'));
 $core->url->register('archive','archive','^archive(/.+)?$',array('dcUrlHandlers','archive'));
@@ -293,8 +300,11 @@ $core->url->register('webmention','webmention','^webmention(/.+)?$',array('dcUrl
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
+// @HACK
 // Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
-$core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'),'Posts');
+//$core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'),'Posts');
+$core->setPostType('post','post.php?id=%d',$core->url->getBase('').'%s');
+/// @HACK END
 
 # Store upload_max_filesize in bytes
 $u_max_size = files::str2bytes(ini_get('upload_max_filesize'));
