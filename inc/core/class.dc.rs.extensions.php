@@ -717,8 +717,10 @@ class rsExtComment
 		return
 		$rs->comment_email && $rs->comment_site &&
 		$rs->comment_email == $rs->user_email;
-		//@HACK
+		
+		// @HACK : Suppression des liens vers les sites des commentateurs pour limiter le spam
         //$rs->comment_site == $rs->user_url;
+        // END @HACK
 	}
 }
 

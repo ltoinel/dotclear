@@ -51,7 +51,7 @@ class dcUrlHandlers extends urlHandler
 		$_ctx =& $GLOBALS['_ctx'];
 		$core = $GLOBALS['core'];
 
-        // @HACK
+        // @HACK : Analyse poussée de la 404
         analyze404($core, $_ctx);
         // FIN @HACK
 	
@@ -83,7 +83,7 @@ class dcUrlHandlers extends urlHandler
 
     protected static function serveDocument($tpl,$content_type='text/html',$http_cache=true,$http_etag=true)
     {
-         // @HACK
+         // @HACK : Override de la fonction pour la gestion du caching.
          serveAndCacheDocument($tpl,$content_type,$http_cache,$http_etag);
         // @HACK END
     }
@@ -454,7 +454,7 @@ class dcUrlHandlers extends urlHandler
 				# Posting a comment
 				if ($post_comment)
 				{
-					// @HACK
+					// @HACK : Une spécificité du blog pour limiter les spam
                     if (!empty($_POST['c_email'])) {
                        http::head(412,'Precondition Failed');
                        header('Content-Type: text/plain');

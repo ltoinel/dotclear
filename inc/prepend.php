@@ -284,7 +284,7 @@ $core->url->registerError(array('dcUrlHandlers','default404'));
 $core->url->register('lang','','^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$',array('dcUrlHandlers','lang'));
 $core->url->register('post','post','^post/(.+)$',array('dcUrlHandlers','post'));
 
-// @HACK
+// @HACK : Ajout d'un nouvel handler sur les extensions .html
 //$core->url->register('lang','','^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$',array('dcUrlHandlers','lang'));
 //$core->url->register('post','post','^post/(.+)$',array('dcUrlHandlers','post'));
 $core->url->register('post','post','^([0-9]{4}/(.)+)$',array('dcUrlHandlers','post'));
@@ -300,7 +300,7 @@ $core->url->register('webmention','webmention','^webmention(/.+)?$',array('dcUrl
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
-// @HACK
+// @HACK : Suppression du "/post" sur les URL des articles du blog.
 // Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
 //$core->setPostType('post','post.php?id=%d',$core->url->getURLFor('post','%s'),'Posts');
 $core->setPostType('post','post.php?id=%d',$core->url->getBase('').'%s');

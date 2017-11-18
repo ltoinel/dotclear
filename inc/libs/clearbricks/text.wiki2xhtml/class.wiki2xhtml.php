@@ -901,7 +901,8 @@ class wiki2xhtml
 		$n_str = $this->__inlineWalk($str,array('abbr','img','em','strong'));
 		$data = $this->__splitTagsAttr($n_str);
 		$no_image = false;
-		//@HACK
+
+		//@HACK : Ajout de la gestion du nofollow sur les liens
 		$no_follow = false;
 		// END @HACK
 
@@ -920,7 +921,7 @@ class wiki2xhtml
 			$lang = (!empty($data[2])) ? $this->protectAttr($data[2],true) : '';
 			$title = (!empty($data[3])) ? $data[3] : '';
 			$no_image = (!empty($data[4])) ? (boolean) $data[4] : false;
-			//@HACK
+			//@HACK : Ajout de la gestion du nofollow sur les liens
 			$no_follow = (!empty($data[4])) ? (boolean) $data[4] : false;
 			// END @HACK
 		}
@@ -967,8 +968,8 @@ class wiki2xhtml
 			$attr = ' href="'.$this->protectAttr($this->protectUrls($url)).'"';
 			$attr .= ($lang) ? ' hreflang="'.$lang.'"' : '';
 			$attr .= ($title) ? ' title="'.$this->protectAttr($title).'"' : '';
-			// @HACK
-			$attr .= ($no_follow) ? ' rel="nofolow"' : '';
+			// @HACK : Ajout de la gestion du nofollow sur les liens
+ 			$attr .= ($no_follow) ? ' rel="nofolow"' : '';
 			// END @HACK
 			return $content;
 		}
@@ -1005,7 +1006,8 @@ class wiki2xhtml
 		}
 
 		$attr = ' src="'.$this->protectAttr($this->protectUrls($url)).'"';
-        ///@HACK
+		
+        ///@HACK : Ajout des alts sur les images avec des underscore
         $file_type = array(".png",".gif",".jpg");
         $alt= str_replace($file_type,"",$alt);
         $separator = array("-","_");
@@ -1013,7 +1015,7 @@ class wiki2xhtml
         //End @HACK
 		$attr .= ' alt="'.$this->protectAttr($alt).'"';
 
-     	///@HACK
+     	///@HACK : Ajout des données de taille sur la balise image
 		$parsed_url = parse_url($url);
 		$img_path = $_SERVER['DOCUMENT_ROOT'].$parsed_url['path'];
 		if (file_exists($img_path)){
