@@ -97,7 +97,7 @@ elseif (!empty($_POST['saveprefs']))
 elseif (!empty($_POST['ping']))
 {
 	$pings = empty($_POST['pings']) ? $default_pings : $_POST['pings'];
-	$sitemap_url = $core->blog->url.$core->url->getBase('gsitemap');
+	$sitemap_url = $core->blog->url.$core->url->getURLFor('gsitemap');
 	foreach ($pings as $service) {
 		try {
 			if (!array_key_exists($service,$engines)) continue;
@@ -154,7 +154,7 @@ if (!empty($msg)) {
 		</p>
 		<p class="info">
 		<?php echo __("This blog's Sitemap URL:"); ?>&nbsp;
-		<strong><?php echo $core->blog->url.$core->url->getBase('gsitemap'); ?></strong>
+		<strong><?php echo $core->blog->url.$core->url->getURLFor('gsitemap'); ?></strong>
 		</p>
 	</div>
 

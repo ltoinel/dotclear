@@ -10,7 +10,9 @@
 # -- END LICENSE BLOCK ------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) return;
 
-$_menu['Blog']->addItem(__('Sitemaps'),'plugin.php?p=sitemaps','index.php?pf=sitemaps/icon.png',
+$_menu['Blog']->addItem(__('Sitemaps'),
+		'plugin.php?p=sitemaps',
+		urldecode(dcPage::getPF('sitemaps/icon.png')),
 		preg_match('/plugin.php\?p=sitemaps(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('contentadmin',$core->blog->id));
 
@@ -21,8 +23,8 @@ function sitemapsDashboardFavorites($core,$favs)
 	$favs->register('sitemaps', array(
 		'title' => __('Sitemaps'),
 		'url' => 'plugin.php?p=sitemaps',
-		'small-icon' => 'index.php?pf=sitemaps/icon.png',
-		'large-icon' => 'index.php?pf=sitemaps/icon-big.png',
+		'small-icon' => urldecode(dcPage::getPF('sitemaps/icon.png')),
+		'large-icon' => urldecode(dcPage::getPF('sitemaps/icon-big.png')),
 		'permissions' => 'usage,contentadmin'
 	));
 }
