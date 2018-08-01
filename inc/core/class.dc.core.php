@@ -1496,7 +1496,7 @@ class dcCore
 		$rs = $this->con->select($strReq);
 		$count = $rs->f(0);
 
-		// @HACK
+		// @HACK : Récupération des champs de contenu
 		$strReq = 'SELECT post_id, post_title, post_content, post_excerpt, post_format, post_lang, post_excerpt_xhtml, post_content_xhtml '.
 				'FROM '.$this->prefix.'post ';
 
@@ -1513,7 +1513,7 @@ class dcCore
 		while ($rs->fetch())
 		{
 
-			// @HACK	
+			// @HACK : Mise à jour du contenu du HTML des pages sur la base du contenu Wiki	
 			$post_excerpt = $rs->post_excerpt;
 			$post_excerpt_xhtml = $rs->post_excerpt_xhtml;
 			$post_content = $rs->post_content;

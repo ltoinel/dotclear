@@ -10,7 +10,7 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-//@HACK
+//@HACK : On appelle en premier ce fichier de cache qui évitera dans 99% des requêtes d'aller plus loin ....
 require dirname(__FILE__).'/cache.php';
 //END @HACK
 

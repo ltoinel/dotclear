@@ -219,7 +219,7 @@ class dcBlog
 		# --BEHAVIOR-- coreBlogAfterTriggerBlog
 		$this->core->callBehavior('coreBlogAfterTriggerBlog',$cur);
 
-		// @HACK
+		// @HACK : Suppression du contenu dans le Memcache.
         $mc = new Memcache();
         if (!$mc->pconnect("localhost", "11211")) {
                 throw new Exception('cmpCache: Unable to connect to memcached.');
@@ -313,10 +313,6 @@ class dcBlog
 			}
 
 			$cur->update('WHERE post_id = '.$post_id);
-	       // @HACK
-           // Hack for header if modification since ...
-           $cur->post_upddt = date('Y-m-d H:i:s');
-           // @HACK END
 		}
 	}
 	//@}
@@ -1929,9 +1925,9 @@ class dcBlog
 		'{d}' => date('d',strtotime($post_dt)),
 		'{t}' => text::tidyURL($post_title),
 		'{id}' => (integer) $post_id,
-		//@HACK
+		// @HACK : Ajout d'un global ID pour Google News
 		'{gid}' => str_pad(($post_id % 1000), 3, "0", STR_PAD_LEFT)
-		//@HACK
+		// END @HACK
 		);
 
 		# If URL is empty, we create a new one
@@ -1944,7 +1940,7 @@ class dcBlog
 				$this->settings->system->post_url_format
 			);
 		}
-	    // @HACK
+	    // @HACK : Ajout de l'extension .html aux pages du blog.
         //else
         //{
         //      $url = text::tidyURL($url);
