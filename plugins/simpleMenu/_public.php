@@ -100,23 +100,41 @@ class tplSimpleMenu
 				$href = $m['url'];
 				$href = html::escapeHTML($href);
 
+				# Cope with request only URL (ie ?query_part)
+				$href_part = '';
+				if ($href != '' && substr($href,0,1) == '?') {
+					$href_part = substr($href,1);
+				}
+
+				$targetBlank = ((isset($m['targetBlank'])) && ($m['targetBlank']))? true:false;
+
 				# Active item test
 				$active = false;
 				if (($url == $href) ||
 					($abs_url == $href) ||
 					($_SERVER['URL_REQUEST_PART'] == $href) ||
+					(($href_part != '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) ||
 					(($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
 					$active = true;
 				}
 				$title = $span = '';
+
 				if ($m['descr']) {
-					if ($description == 'title' || $description == 'both') {
+					if (($description == 'title' || $description == 'both') && $targetBlank) {
+						$title = ' title="'.html::escapeHTML(__($m['descr'])).' ('.
+						__("the link will open a new window").')"';
+					}elseif($description == 'title' || $description == 'both'){
 						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
 					}
 					if ($description == 'span' || $description == 'both') {
 						$span = ' <span class="simple-menu-descr">'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
+
+				if( empty($title) && $targetBlank){
+					$title = ' title="'.__("the link will open a new window").'"';
+				}
+
 				$label = html::escapeHTML(__($m['label']));
 
 				$item = new ArrayObject(array(
@@ -137,12 +155,12 @@ class tplSimpleMenu
 							($i == count($menu)-1 ? ' li-last' : '').
 							($item['class'] ? $item['class'] : '').
 						'">'.
-						'<a href="'.$href.'"'.$item['title'].'>'.
+						'<a href="'.$href.'"'.$item['title'].
+						(($targetBlank) ? 'target="_blank" rel="noopener noreferrer"': '').'>'.
 						'<span class="simple-menu-label">'.$item['label'].'</span>'.
 						$item['span'].'</a>'.
 						'</li>';
 			}
-
 			// Final rendering
 			if ($ret) {
 				$ret = '<nav role="navigation"><ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul></nav>';

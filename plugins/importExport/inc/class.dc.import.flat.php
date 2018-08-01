@@ -89,7 +89,7 @@ class dcImportFlat extends dcIeModule
 
 		if ($full_upl !== null && $this->core->auth->isSuperAdmin())
 		{
-			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($this->core->auth->crypt($_POST['your_pwd']))) {
+			if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($_POST['your_pwd'])) {
 				throw new Exception(__('Password verification failed'));
 			}
 
@@ -223,7 +223,7 @@ class dcImportFlat extends dcIeModule
 
 			echo
 			'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
-			form::password('your_pwd',20,255).'</p>'.
+			form::password('your_pwd',20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 
 			'<p>'.
 			$this->core->formNonce().

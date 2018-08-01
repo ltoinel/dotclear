@@ -569,10 +569,6 @@ $(function() {
 		e.preventDefault();
 		$(this).parent().hide();
 	});
-	$('p.success,p.warning,p.error,div.error').click(function(e) {
-	    e.preventDefault();
-		$(this).hide();
-	});
 
 	// Password
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
@@ -587,9 +583,36 @@ $(function() {
 		return true;
 	});
 
+	// Cope with ellipsis'ed cells
+	$('table .maximal').each(function() {
+		if (this.offsetWidth < this.scrollWidth) {
+			if (this.title == '') {
+				this.title = this.innerText;
+				$(this).addClass('ellipsis');
+			}
+		}
+	});
+	$('table .maximal.ellipsis a').each(function() {
+		if (this.title == '') {
+			this.title = this.innerText;
+		}
+	})
+
 	// Advanced users
 	if (dotclear.hideMoreInfo) {
 		$('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
+	}
+
+	// Ajax loader activity indicator
+	if (dotclear.showAjaxLoader) {
+		$(document).ajaxStart(function() {
+			$('body').addClass('ajax-loader');
+			$('div.ajax-loader').show();
+		});
+		$(document).ajaxStop(function() {
+			$('body').removeClass('ajax-loader');
+			$('div.ajax-loader').hide();
+		});
 	}
 
 	// Main menu collapser

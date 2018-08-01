@@ -116,48 +116,6 @@ $__dashboard_items = new ArrayObject(array(new ArrayObject(),new ArrayObject()))
 
 $dashboardItem = 0;
 
-if ($core->auth->user_prefs->dashboard->dcnews) {
-	try
-	{
-		if (empty($__resources['rss_news'])) {
-			throw new Exception();
-		}
-
-		$feed_reader = new feedReader;
-		$feed_reader->setCacheDir(DC_TPL_CACHE);
-		$feed_reader->setTimeout(2);
-		$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
-		$feed = $feed_reader->parse($__resources['rss_news']);
-		if ($feed)
-		{
-			$latest_news = '<div class="box medium dc-box"><h3>'.__('Dotclear news').'</h3><dl id="news">';
-			$i = 1;
-			foreach ($feed->items as $item)
-			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'" class="outgoing" title="'.$item->title.'">'.
-					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
-
-				if ($i < 3) {
-					$latest_news .=
-					'<dt>'.$dt.'</dt>'.
-					'<dd><p><strong>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</strong> '.
-					'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
-				} else {
-					$latest_news .=
-					'<dt>'.$dt.'</dt>'.
-					'<dd>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</dd>';
-				}
-				$i++;
-				if ($i > 2) { break; }
-			}
-			$latest_news .= '</dl></div>';
-			$__dashboard_items[$dashboardItem][] = $latest_news;
-			$dashboardItem++;
-		}
-	}
-	catch (Exception $e) {}
-}
-
 # Documentation links
 if ($core->auth->user_prefs->dashboard->doclinks) {
 	if (!empty($__resources['doc']))
@@ -209,39 +167,6 @@ dcPage::open(__('Dashboard'),
 		array('home_link' =>false)
 	)
 );
-
-# Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !$core->auth->user_prefs->dashboard->nodcupdate)
-{
-	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
-	$new_v = $updater->check(DC_VERSION);
-	$version_info = $new_v ? $updater->getInfoURL() : '';
-
-	if ($updater->getNotify() && $new_v) {
-		// Check PHP version required
-		if (version_compare(phpversion(),$updater->getPHPVersion()) >= 0) {
-			echo
-			'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
-			'<p><a class="button submit" href="'.$core->adminurl->get("admin.update").'">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
-			'<a class="button" href="'.$core->adminurl->get("admin.update", array('hide_msg' => 1)).'">'.__('Remind me later').'</a>'.
-			($version_info ? ' </p>'.
-			'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
-			'</div>';
-		} else {
-			echo '<p class="info">'.
-				sprintf(__('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
-					$updater->getPHPVersion(),phpversion()).
-				'</p>';
-		}
-	} else {
-		if (version_compare(phpversion(),DC_NEXT_REQUIRED_PHP,'<')) {
-			echo '<p class="info">'.
-				sprintf(__('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-					DC_NEXT_REQUIRED_PHP,phpversion()).
-				'</p>';
-		}
-	}
-}
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->getBlogCount() > 1) {
 	echo
@@ -373,11 +298,11 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'<form id="quick-entry" action="'.$core->adminurl->get('admin.post').'" method="post" class="fieldset">'.
 		'<h4>'.__('New entry').'</h4>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
-		form::field('post_title',20,255,'','maximal').
+		form::field('post_title',20,255,'','maximal','',false,'required placeholder="'.__('Title').'"').
 		'</p>'.
 		'<p class="area"><label class="required" '.
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-		form::textarea('post_content',50,10).
+		form::textarea('post_content',50,10,'','','',false,'required placeholder="'.__('Content').'"').
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').'</label> '.
 		form::combo('cat_id',$categories_combo).'</p>'.

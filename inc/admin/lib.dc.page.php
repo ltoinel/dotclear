@@ -94,6 +94,9 @@ class dcPage
 		# Content-Type
 		$headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
 
+		# Referrer Policy for admin pages
+		$headers['referrer'] = 'Referrer-Policy: strict-origin';
+
 		# Prevents Clickjacking as far as possible
 		if (isset($options['x-frame-allow'])) {
 			self::setXFrameOptions($headers,$options['x-frame-allow']);
@@ -176,8 +179,7 @@ class dcPage
 		}
 
 		$core->auth->user_prefs->addWorkspace('interface');
-		$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
-		if (!$user_ui_hide_std_favicon) {
+		if (!$core->auth->user_prefs->interface->hide_std_favicon) {
 			echo
 			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'."\n".
 			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />'."\n";
@@ -199,6 +201,12 @@ class dcPage
 			echo
 			'<script type="text/javascript">'."\n".
 			'dotclear.hideMoreInfo = true;'."\n".
+			"</script>\n";
+		}
+		if ($core->auth->user_prefs->interface->showajaxloader) {
+			echo
+			'<script type="text/javascript">'."\n".
+			'dotclear.showAjaxLoader = true;'."\n".
 			"</script>\n";
 		}
 
@@ -351,9 +359,11 @@ class dcPage
 		global $core;
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
-			echo
-			'<p id="help-button"><a href="'.$core->adminurl->get("admin.help").'" class="outgoing" title="'.
-			__('Global help').'">'.__('Global help').'</a></p>';
+			if (!$core->auth->user_prefs->interface->hidehelpbutton) {
+				echo
+				'<p id="help-button"><a href="'.$core->adminurl->get("admin.help").'" class="outgoing" title="'.
+				__('Global help').'">'.__('Global help').'</a></p>';
+			}
 		}
 
 		$menu =& $GLOBALS['_menu'];
@@ -401,8 +411,6 @@ class dcPage
 		$figure.
 		" -->"."\n";
 
-
-
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
 		}
@@ -418,7 +426,10 @@ class dcPage
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 
-		// Prevents Clickjacking as far as possible
+		# Referrer Policy for admin pages
+		header('Referrer-Policy: strict-origin');
+
+		# Prevents Clickjacking as far as possible
 		header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
 		echo
@@ -454,6 +465,12 @@ class dcPage
 			echo
 			'<script type="text/javascript">'."\n".
 			'dotclear.hideMoreInfo = true;'."\n".
+			"</script>\n";
+		}
+		if ($core->auth->user_prefs->interface->showajaxloader) {
+			echo
+			'<script type="text/javascript">'."\n".
+			'dotclear.showAjaxLoader = true;'."\n".
 			"</script>\n";
 		}
 
@@ -595,8 +612,12 @@ class dcPage
 	public static function helpBlock()
 	{
 		global $core;
-		$args = func_get_args();
 
+		if ($core->auth->user_prefs->interface->hidehelpbutton) {
+			return;
+		}
+
+		$args = func_get_args();
 		$args = new ArrayObject($args);
 
 		# --BEHAVIOR-- adminPageHelpBlock
@@ -1056,10 +1077,10 @@ class dcPage
 			'var '.$name.' = CodeMirror.fromTextArea('.$id.',{'."\n".
 			'	mode: "'.$mode.'",'."\n".
 			'	tabMode: "indent",'."\n".
-			'	lineWrapping: "true",'."\n".
-			'	lineNumbers: "true",'."\n".
-			'	matchBrackets: "true",'."\n".
-			'	autoCloseBrackets: "true",'."\n".
+			'	lineWrapping: 1,'."\n".
+			'	lineNumbers: 1,'."\n".
+			'	matchBrackets: 1,'."\n".
+			'	autoCloseBrackets: 1,'."\n".
 			'	extraKeys: {"F11": function(cm) {cm.setOption("fullScreen",!cm.getOption("fullScreen"));}}';
 		if ($theme) {
 			$ret .=

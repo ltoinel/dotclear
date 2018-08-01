@@ -965,6 +965,12 @@ msgstr "Me le rappeler plus tard"
 msgid "Information about this version"
 msgstr "Informations sur cette version"
 
+msgid "Dotclear news not available"
+msgstr "Nouvelles de Dotclear non disponibles"
+
+msgid "Dotclear update not available"
+msgstr "Mise à jour de Dotclear non disponible"
+
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Une nouvelle version de Dotclear est disponible mais nécessite une version de PHP ≥ %s, la votre est actuellement la %s"
@@ -1038,8 +1044,8 @@ msgid "Save and publish"
 msgstr "Enregister et publier"
 
 #, php-format
-msgid "PHP version is %s (5.3 or earlier needed)."
-msgstr "La version de PHP est %s (5.3 ou plus récente nécessaire)."
+msgid "PHP version is %s (5.5 or earlier needed)."
+msgstr "La version de PHP est %s (5.5 ou plus récente nécessaire)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."
@@ -1517,8 +1523,12 @@ msgid "Size"
 msgstr "Taille"
 
 #, php-format
-msgid "In %s:"
-msgstr "Dans %s :"
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb d'éléments : %d → %d dossier(s) + %d fichier(s)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb d'éléments : %d"
 
 msgid "Create new directory"
 msgstr "Créer un répertoire"
@@ -2193,6 +2203,12 @@ msgstr "Si cette option est cochée, des champs numériques permettront d'indiqu
 
 msgid "Hide all secondary information and notes"
 msgstr "Cacher les informations secondaires et les notes"
+
+msgid "Hide help button"
+msgstr "Cacher le bouton d'aide"
+
+msgid "Show asynchronous requests indicator"
+msgstr "Afficher l'indicateur de requête asynchrone"
 
 msgid "Font size:"
 msgstr "Taille de police de caractère :"

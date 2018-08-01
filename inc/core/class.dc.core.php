@@ -71,6 +71,8 @@ class dcCore
 			mysqlConnection::$weak_locks = true;
 		} elseif ($this->con instanceof mysqliConnection) {
 			mysqliConnection::$weak_locks = true;
+		} elseif ($this->con instanceof mysqlimb4Connection) {
+			mysqlimb4Connection::$weak_locks = true;
 		}
 
 		# define searchpath for postgresql
@@ -192,7 +194,7 @@ class dcCore
 
 	public function getNonce()
 	{
-		return $this->auth->crypt(session_id());
+		return $this->auth->cryptLegacy(session_id());
 	}
 
 	public function checkNonce($secret)
@@ -202,7 +204,7 @@ class dcCore
 			return false;
 		}
 
-		return $secret == $this->auth->crypt(session_id());
+		return $secret == $this->auth->cryptLegacy(session_id());
 	}
 
 	public function formNonce()

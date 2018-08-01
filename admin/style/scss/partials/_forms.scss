@@ -8,8 +8,19 @@ button,
 textarea,
 select,
 legend {
-	border-radius: 3px;
 	max-width: 100%;
+}
+
+input[type=text],
+input[type=password],
+input[type=submit],
+input[type=button],
+input[type=reset],
+a.button,
+button,
+textarea,
+legend {
+	border-radius: 3px;
 }
 
 form {
@@ -26,6 +37,9 @@ fieldset {
 	border-style: solid;
 	border-color: #ccc;
 	background: #f7f7f7;
+	&:focus-within {
+		background-color: #eee;
+	}
 }
 
 input[type=text],
@@ -50,23 +64,44 @@ select.maximal {
 	width: 99%;
 }
 
+input.invalid,
+textarea.invalid,
+select.invalid,
+input:not([type=file]):invalid:not(:focus) {
+	color: #900;
+	box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3);
+}
+input.invalid,
+textarea.invalid,
+input:not([type=file]):invalid:not(:focus) {
+	border: 1px solid red;
+	background: #FFBABA;
+}
+
 input[type=text],
 input[type=password],
 textarea,
-select {
-	background: #fcfcfc;
+select,
+input:not([type=file]):invalid,
+input:not([type=file]):invalid:placeholder-shown {
 	color: #000;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #dfdfdf;
 	box-shadow: 1px 1px 2px #f3f3f3 inset;
 	padding: 3px;
 	vertical-align: top;
 }
+input[type=text],
+input[type=password],
+textarea,
+input:not([type=file]):invalid,
+input:not([type=file]):invalid:placeholder-shown {
+	background: #fcfcfc;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dfdfdf;
+}
 
 input:focus,
-textarea:focus,
-select:focus {
+textarea:focus {
 	border-color: #9bca1c;
 }
 
@@ -86,6 +121,13 @@ select {
 	padding: 2px 0;
 	vertical-align: middle;
 }
+@media not all and (min-resolution:.001dpcm)
+{ @supports (-webkit-appearance:none) {
+	/* Safari 10.1+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
+	select {
+		font-size: initial;
+    }
+}}
 
 select.l10n option {
 	padding-left: 16px;
@@ -93,15 +135,6 @@ select.l10n option {
 
 option.avail10n {
 	background: transparent url(../images/check-on.png) no-repeat 0 50%;
-}
-
-input.invalid,
-textarea.invalid,
-select.invalid {
-	border: 1px solid red;
-	background: #FFBABA;
-	color: #900;
-	box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3);
 }
 
 input[type=text],
@@ -197,17 +230,17 @@ p.field {
 	}
 }
 
-.form-note {
+.form-note, .form-stats {
 	font-style: italic;
 	font-weight: normal;
 	color: #676e78;
 }
 
-p.form-note {
+p.form-note, p.form-stats {
 	margin-top: -.7em;
 }
 
-span.form-note {
+span.form-note, span.form-stats {
 	text-transform: none;
 }
 

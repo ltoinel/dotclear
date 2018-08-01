@@ -71,7 +71,7 @@ if (isset($_POST['user_name']))
 {
 	try
 	{
-		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($core->auth->crypt($_POST['your_pwd']))) {
+		if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
 			throw new Exception(__('Password verification failed'));
 		}
 
@@ -79,14 +79,14 @@ if (isset($_POST['user_name']))
 
 		$cur->user_id = $_POST['user_id'];
 		$cur->user_super = $user_super = !empty($_POST['user_super']) ? 1 : 0;
-		$cur->user_name = $user_name = $_POST['user_name'];
-		$cur->user_firstname = $user_firstname = $_POST['user_firstname'];
-		$cur->user_displayname = $user_displayname = $_POST['user_displayname'];
-		$cur->user_email = $user_email = $_POST['user_email'];
-		$cur->user_url = $user_url = $_POST['user_url'];
-		$cur->user_lang = $user_lang = $_POST['user_lang'];
-		$cur->user_tz = $user_tz = $_POST['user_tz'];
-		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
+		$cur->user_name = $user_name = html::escapeHTML($_POST['user_name']);
+		$cur->user_firstname = $user_firstname = html::escapeHTML($_POST['user_firstname']);
+		$cur->user_displayname = $user_displayname = html::escapeHTML($_POST['user_displayname']);
+		$cur->user_email = $user_email = html::escapeHTML($_POST['user_email']);
+		$cur->user_url = $user_url = html::escapeHTML($_POST['user_url']);
+		$cur->user_lang = $user_lang = html::escapeHTML($_POST['user_lang']);
+		$cur->user_tz = $user_tz = html::escapeHTML($_POST['user_tz']);
+		$cur->user_post_status = $user_post_status = html::escapeHTML($_POST['user_post_status']);
 
 		if ($user_id && $cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
 			// force super_user to true if current user
@@ -104,7 +104,7 @@ if (isset($_POST['user_name']))
 			}
 		}
 
-		$user_options['post_format'] = $_POST['user_post_format'];
+		$user_options['post_format'] = html::escapeHTML($_POST['user_post_format']);
 		$user_options['edit_size'] = (integer) $_POST['user_edit_size'];
 
 		if ($user_options['edit_size'] < 1) {
@@ -205,7 +205,7 @@ echo
 '<h3>'.__('User profile').'</h3>'.
 
 '<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('User ID:').'</label> '.
-form::field('user_id',20,255,html::escapeHTML($user_id)).
+form::field('user_id',20,255,html::escapeHTML($user_id),'','',false,'required placeholder="'.__('Login').'"').
 '</p>'.
 '<p class="form-note info">'.__('At least 2 characters using letters, numbers or symbols.').'</p>';
 
@@ -221,7 +221,8 @@ echo
 		'<label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 		($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
 		($user_id != '' ? __('New password:') : __('Password:')).'</label>'.
-		form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').
+		form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" '.
+			($user_id != '' ? '' : 'required placeholder="'.__('Password').'"')).
 	'</p>'.
 	'<div id="pwindicator">'.
 	'    <div class="bar"></div>'.
@@ -232,7 +233,7 @@ echo
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').'</label> '.
-form::password('new_pwd_c',20,255).
+form::password('new_pwd_c',20,255,'','','',false,($user_id != '' ? '' : 'required placeholder="'.__('Password').'"')).
 '</p>';
 
 if ($core->auth->allowPassChange()) {
@@ -307,7 +308,7 @@ echo
 echo
 '<p class="clear vertical-separator"><label for="your_pwd" class="required">'.
 '<abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
-form::password('your_pwd',20,255).'</p>'.
+form::password('your_pwd',20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="'.__('Save').'" />'.
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="'.__('Save and create another').'" />').
 ($user_id != '' ? form::hidden('id',$user_id) : '').

@@ -708,7 +708,7 @@ class dcBlog
 
 		if (!$rs->isEmpty())
 		{
-			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
 				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
 				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
@@ -1963,8 +1963,8 @@ class dcBlog
 
 		if (!$rs->isEmpty())
 		{
-			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli') {
-				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
+			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
+				$clause = "REGEXP '^".$this->con->escape(preg_quote($url))."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
 				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
 			} else {

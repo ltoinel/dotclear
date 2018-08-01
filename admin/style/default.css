@@ -993,8 +993,18 @@ button,
 textarea,
 select,
 legend {
-  border-radius: 3px;
   max-width: 100%; }
+
+input[type=text],
+input[type=password],
+input[type=submit],
+input[type=button],
+input[type=reset],
+a.button,
+button,
+textarea,
+legend {
+  border-radius: 3px; }
 
 form {
   display: block;
@@ -1009,6 +1019,8 @@ fieldset {
   border-style: solid;
   border-color: #ccc;
   background: #f7f7f7; }
+  fieldset:focus-within {
+    background-color: #eee; }
 
 input[type=text],
 textarea {
@@ -1029,22 +1041,42 @@ input.maximal,
 select.maximal {
   width: 99%; }
 
+input.invalid,
+textarea.invalid,
+select.invalid,
+input:not([type=file]):invalid:not(:focus) {
+  color: #900;
+  box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3); }
+
+input.invalid,
+textarea.invalid,
+input:not([type=file]):invalid:not(:focus) {
+  border: 1px solid red;
+  background: #FFBABA; }
+
 input[type=text],
 input[type=password],
 textarea,
-select {
-  background: #fcfcfc;
+select,
+input:not([type=file]):invalid,
+input:not([type=file]):invalid:placeholder-shown {
   color: #000;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #dfdfdf;
   box-shadow: 1px 1px 2px #f3f3f3 inset;
   padding: 3px;
   vertical-align: top; }
 
+input[type=text],
+input[type=password],
+textarea,
+input:not([type=file]):invalid,
+input:not([type=file]):invalid:placeholder-shown {
+  background: #fcfcfc;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dfdfdf; }
+
 input:focus,
-textarea:focus,
-select:focus {
+textarea:focus {
   border-color: #9bca1c; }
 
 textarea {
@@ -1060,19 +1092,16 @@ select {
   padding: 2px 0;
   vertical-align: middle; }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    /* Safari 10.1+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
+    select {
+      font-size: initial; } } }
 select.l10n option {
   padding-left: 16px; }
 
 option.avail10n {
   background: transparent url(../images/check-on.png) no-repeat 0 50%; }
-
-input.invalid,
-textarea.invalid,
-select.invalid {
-  border: 1px solid red;
-  background: #FFBABA;
-  color: #900;
-  box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3); }
 
 input[type=text],
 input[type=password],
@@ -1148,15 +1177,15 @@ p.field {
   p.field select {
     display: inline-block; }
 
-.form-note {
+.form-note, .form-stats {
   font-style: italic;
   font-weight: normal;
   color: #676e78; }
 
-p.form-note {
+p.form-note, p.form-stats {
   margin-top: -.7em; }
 
-span.form-note {
+span.form-note, span.form-stats {
   text-transform: none; }
 
 .no-more-info {
@@ -1490,6 +1519,10 @@ p.warning-msg {
 .close-notice-parent {
   display: flex;
   justify-content: space-between; }
+  .close-notice-parent ul, .close-notice-parent p + p {
+    flex: 1; }
+  .close-notice-parent p + p {
+    padding-left: .25em; }
 
 .close-notice {
   background: none;
@@ -1523,6 +1556,13 @@ p.warning-msg {
   margin-left: 2em;
   border-color: #000;
   font-weight: bold; }
+
+body.ajax-loader #header {
+  border-bottom-color: #92b7d2;
+  transition: border-bottom-color .3s ease; }
+body.ajax-loader #collapser {
+  background-color: #92b7d2;
+  transition: background-color .3s ease; }
 
 /** --------------------------------------------------
     Components
@@ -1893,6 +1933,10 @@ span.tooltip {
 /** --------------------------------------------------
     Tables and Filters
 --------------------------------------------------- */
+table .maximal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 1px; }
 table .maximal, table.maximal {
   width: 100%; }
 table .minimal {
@@ -1927,6 +1971,8 @@ tr.line input[type=text] {
   background: #fff; }
 tr.line:hover {
   background: #f3f3f3; }
+tr.line:focus-within {
+  background-color: #eee; }
 
 td.status {
   vertical-align: middle; }
@@ -2016,6 +2062,8 @@ a.form-control {
   #filters-form span.ibw {
     width: 9em;
     display: inline-block; }
+  #filters-form:focus-within {
+    background-color: #eee; }
 
 span.ib {
   width: 7em; }
@@ -2764,6 +2812,8 @@ div.template-upload {
   margin-right: 1em;
   padding: .5em 1em;
   background-color: #f3f3f3; }
+  .sb-box:focus-within {
+    background-color: #eee; }
 
 #tb_excerpt {
   width: 100%; }
@@ -3056,6 +3106,8 @@ a.onblog_link {
   margin-bottom: 1em; }
   .fieldset h3 {
     margin-top: 0; }
+  .fieldset:focus-within {
+    background-color: #eee; }
 
 .right,
 .txt-right {

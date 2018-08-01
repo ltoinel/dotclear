@@ -1,4 +1,9 @@
 table {
+	.maximal {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 1px;
+	}
 	.maximal,
 	&.maximal {
 		width: 100%;
@@ -48,6 +53,9 @@ tr.line {
 	}
 	&:hover {
 		background: #f3f3f3;
+	}
+	&:focus-within {
+		background-color: #eee;
 	}
 }
 

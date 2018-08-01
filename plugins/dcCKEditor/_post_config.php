@@ -263,6 +263,7 @@ $(function() {
 		$('#excerpt-area label').click(function() {
 			$('#cke_post_excerpt').toggleClass('hide',$('#post_excerpt').hasClass('hide'));
 		});
+
 	});
 
 	// @TODO: find a better way to retrieve active editor
