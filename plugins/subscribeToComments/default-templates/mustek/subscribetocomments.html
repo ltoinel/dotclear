@@ -1,0 +1,168 @@
+{{tpl:extends parent="__layout.html"}}
+
+<tpl:Block name="head-title">
+	<title>{{tpl:lang Subscribe to comments}} - {{tpl:BlogName encode_html="1"}}</title>
+</tpl:Block>
+
+<tpl:Block name="meta-robots">
+	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX,NOARCHIVE"}}" />
+</tpl:Block>
+
+<tpl:Block name="head-linkrel">
+	<link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
+</tpl:Block>
+
+<tpl:Block name="html-head">
+	{{tpl:parent}}
+
+	<script type="text/javascript">
+	//<![CDATA[
+	/* http://www.dustindiaz.com/getelementsbyclass/ */
+	function subscribeTC(action) {
+		var els = document.getElementsByTagName('input');
+		var elsLen = els.length;
+		var pattern = new RegExp("(^|\\\\s)"+'subscribeTCEntries'+"(\\\\s|$)");
+		for (i = 0; i < elsLen; i++) {
+			if (pattern.test(els[i].className)) {
+				if (action == 'all') {
+				els[i].checked = 'checked';
+				} else {
+				els[i].checked = !els[i].checked;
+				}
+			}
+		}
+	}
+	$(function() {
+			$('input[name="remove"]').click(function() {
+				return window.confirm('{{tpl:lang Remove selected subscriptions?}}');
+			});
+	});
+
+	/* l10n */
+	prompt_allow = '{{tpl:lang Allow emails?}}';
+	prompt_block = '{{tpl:lang Block emails?}}';
+	prompt_delete = '{{tpl:lang Delete the account?}}';
+	//]]>
+	</script>
+</tpl:Block>
+
+<tpl:Block name="body-tag"><body class="dc-subscribe"></tpl:Block>
+
+<tpl:Block name="main-content">
+	<div id="content-info">
+		<h2>
+			<tpl:SubscribeToCommentsIfMessage>
+				<em>{{tpl:SubscribeToCommentsMessage}}</em> -
+			</tpl:SubscribeToCommentsIfMessage>
+			{{tpl:lang Subscribe to comments}}
+		</h2>
+	</div>
+
+	<div class="content-inner">
+	<tpl:SysIfFormError>
+		<p class="error">{{tpl:lang Error:}} {{tpl:SysFormError}}</p>
+	</tpl:SysIfFormError>
+
+	<div id="comments">
+  		<form method="post" action="{{tpl:SubscribeToCommentsURL}}" id="comment-form">
+  			<p><input type="hidden" name="subscribeToCommentsNonce" value="{{tpl:SubscribeToCommentsNonce}}" /></p>
+			<tpl:SubscribeToCommentsLoggedIfNot>
+				<tpl:SubscribeToCommentsEntryIf>
+					<p><a href="{{tpl:EntryURL}}">{{tpl:lang Get back to}} {{tpl:EntryTitle encode_html="1"}}</a>
+					</p>
+					<tpl:EntryIf show_comments="1">
+	  				<h3>{{tpl:lang Subscribe to one entry}}</h3>
+  				</tpl:EntryIf>
+  			</tpl:SubscribeToCommentsEntryIf>
+  			<fieldset>
+					<!-- #<legend>{{tpl:lang Email address}}</legend>-->
+					<p>{{tpl:lang To login, you have to click on the link given in previously sent emails.}}
+						{{tpl:lang Click on the button below to resend informations to your email address.}}
+					</p>
+
+	  			<p class="field">
+						<label for="email">{{tpl:lang Email address}}:</label>
+						<input type="text" name="email" id="email" size="30" maxlength="255" value="{{tpl:SubscribeToCommentsEmail}}" />
+					</p>
+
+					<tpl:SubscribeToCommentsEntryIf>
+						<tpl:EntryIf show_comments="1">
+							<input type="hidden" name="post_id" value="{{tpl:EntryID}}" />
+							<p><input type="submit" class="submit" name="subscribe" value="{{tpl:lang Subscribe to}} {{tpl:EntryTitle encode_html="1"}}" /></p>
+						</tpl:EntryIf>
+					</tpl:SubscribeToCommentsEntryIf>
+
+					<p><input type="submit" class="submit" name="resend" value="{{tpl:lang Resend account informations to this email address}}" /></p>
+				</fieldset>
+			</tpl:SubscribeToCommentsLoggedIfNot>
+
+			<tpl:SubscribeToCommentsLoggedIf>
+				<p style="text-align:right;">
+					<input type="submit" class="submit" name="logout" value="{{tpl:lang Logout}}" /></p>
+				<tpl:SubscribeToCommentsEntryIf>
+					<p>
+						<a href="{{tpl:EntryURL}}">{{tpl:lang Get back to}} {{tpl:EntryTitle encode_html="1"}}</a>
+					</p>
+					<tpl:EntryIf show_comments="1">
+  						<h3>{{tpl:lang Subscribe to one entry}}</h3>
+  						<input type="hidden" name="post_id" value="{{tpl:EntryID}}" />
+						<p><input type="submit" class="submit" name="subscribe" value="{{tpl:lang Subscribe to}} {{tpl:EntryTitle encode_html="1"}}" /></p>
+					</tpl:EntryIf>
+  				</tpl:SubscribeToCommentsEntryIf>
+				<p>{{tpl:lang Email address}} :
+					<strong>{{tpl:SubscribeToCommentsEmail}}</strong></p>
+
+				<h3>{{tpl:lang Remove subscriptions}}</h3>
+				<fieldset>
+					<legend>{{tpl:lang Entries}}</legend>
+					<ul>
+					<tpl:SubscribeToCommentsEntries>
+						<li>
+							<input type="checkbox" name="entries[]" value="{{tpl:EntryID}}" id="post_{{tpl:EntryID}}" class="subscribeTCEntries" style="width: auto;" />
+							<label for="post_{{tpl:EntryID}}">
+								{{tpl:EntryTitle encode_html="1"}}
+								({{tpl:EntryDate format="%d/%m/%Y"}})
+							</label>
+								(<a href="{{tpl:EntryURL}}#comments">{{tpl:EntryCommentCount}}</a>)
+						</li>
+					</tpl:SubscribeToCommentsEntries>
+					</ul>
+					<p>
+						<a href="#" onclick="javascript:subscribeTC('all');return false;">{{tpl:lang select all}}</a>
+						 - <a href="#" onclick="javascript:subscribeTC('invert'); return false;">{{tpl:lang invert selection}}</a>
+					</p>
+					<p><input type="submit" class="submit" name="remove" value="{{tpl:lang Remove selected subscriptions}}" /></p>
+				</fieldset>
+
+				<h3>{{tpl:lang Account}}</h3>
+				<fieldset>
+					<legend>{{tpl:lang Change email address}}</legend>
+					<p class="field">
+						<label for="new_email">
+							{{tpl:lang New email address:}}</label>
+						<input type="text" name="new_email" id="new_email" size="30" maxlength="255" />
+					</p>
+					<p>
+						{{tpl:lang You'll have 24 hours to click on the link sent to the new email address to confirm the change.}}
+					</p>
+					<p>
+						<input type="submit" class="submit" name="requestChangeEmail" value="{{tpl:lang Change email address}}" />
+					</p>
+					<p>
+						<tpl:SubscribeToCommentsBlockedIf>
+							<input type="submit" class="submit" name="allowEmails" value="{{tpl:lang Allow emails}}" onclick="javascript:return(window.confirm(prompt_allow));" />
+						</tpl:SubscribeToCommentsBlockedIf>
+						<tpl:SubscribeToCommentsBlockedIfNot>
+							<input type="submit" class="submit" name="blockEmails" value="{{tpl:lang Block emails}}" onclick="javascript:return(window.confirm(prompt_block));" />
+						</tpl:SubscribeToCommentsBlockedIfNot>
+					</p>
+					<p>
+						<input type="submit" class="submit" name="deleteAccount" value="{{tpl:lang Delete all subscriptions and the account}}" onclick="javascript:return(window.confirm(prompt_delete));" />
+					</p>
+				</fieldset>
+  			</tpl:SubscribeToCommentsLoggedIf>
+  		</form>
+  </div><!-- End #comments -->
+
+  </div><!-- End #content-inner -->
+</tpl:Block>

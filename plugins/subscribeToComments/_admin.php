@@ -2,7 +2,7 @@
 # ***** BEGIN LICENSE BLOCK *****
 #
 # This file is part of Subscribe to comments.
-# Copyright (C) 2008,2009,2010 Moe (http://gniark.net/)
+# Copyright (C) 2008-2018 Moe (http://gniark.net/)
 #
 # Subscribe to comments is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
-$_menu['Plugins']->addItem(__('Subscribe to comments'),
+$_menu['Blog']->addItem(__('Subscribe to comments'),
 	'plugin.php?p=subscribeToComments',
 	'index.php?pf=subscribeToComments/icon.png',
 	preg_match('/plugin.php\?p=subscribeToComments(&.*)?$/',$_SERVER['REQUEST_URI']),
@@ -97,25 +97,25 @@ class subscribeToCommentsAdmin
 		return('<p><strong>'.__('Subscribe to comments:').'</strong> '.$string.'</p>');
 	}
 	
-	public static function exportFull(&$core,&$exp)
+	public static function exportFull($core,$exp)
 	{
 		$exp->exportTable('comment_subscriber');
 	}
 	
-	public static function exportSingle(&$core,&$exp,$blog_id)
+	public static function exportSingle($core,$exp,$blog_id)
 	{
 		$exp->export('comment_subscriber',
 			'SELECT id, email, user_key, temp_key, temp_expire, status '.
 			'FROM '.$core->prefix.'comment_subscriber');
 	}
 	
-	public static function importInit(&$bk,&$core)
+	public static function importInit($bk,$core)
 	{
 		$bk->cur_comment_subscriber =
 			$core->con->openCursor($core->prefix.'comment_subscriber');
 	}
 	
-	public static function importFull(&$line,&$bk,&$core)
+	public static function importFull($line,$bk,$core)
 	{	
 		if (self::$delete) {
 			$core->con->execute('DELETE FROM '.$core->prefix.'comment_subscriber');
@@ -137,7 +137,7 @@ class subscribeToCommentsAdmin
 		}
 	}
 	
-	public static function importSingle(&$line,&$bk,&$core)
+	public static function importSingle($line,$bk,$core)
 	{
 		if ($line->__name == 'comment_subscriber')
 		{
@@ -164,4 +164,16 @@ class subscribeToCommentsAdmin
 		}
 	}
 }
-?>
+
+$core->addBehavior('adminDashboardFavorites','subscribeToCommentsDashboardFavorites');
+
+function subscribeToCommentsDashboardFavorites($core,$favs)
+{
+	$favs->register('subscribeToComments', array(
+		'title' => __('Subscribe to comments'),
+		'url' => 'plugin.php?p=subscribeToComments',
+		'small-icon' => 'index.php?pf=subscribeToComments/icon.png',
+		'large-icon' => 'index.php?pf=subscribeToComments/icon-big.png',
+		'permissions' => 'usage,contentadmin'
+	));
+}

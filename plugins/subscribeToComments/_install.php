@@ -1,27 +1,25 @@
 <?php
 # ***** BEGIN LICENSE BLOCK *****
 #
-# This file is part of Subscribe to comments, a plugin for Dotclear 2
-# Copyright (C) 2008,2009,2010 Moe (http://gniark.net/)
+# This file is part of Subscribe to comments.
+# Copyright (C) 2008-2018 Moe (http://gniark.net/)
 #
-# Subscribe to comments is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License v2.0
-# as published by the Free Software Foundation.
+# Subscribe to comments is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
 # Subscribe to comments is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Icon (icon.png) and images are from Silk Icons :
-# <http://www.famfamfam.com/lab/icons/silk/>
+# Icon (icon.png) is from Silk Icons : http://www.famfamfam.com/lab/icons/silk/
 #
-# Inspired by Subscribe to Comments for WordPress :
-# <http://txfx.net/code/wordpress/subscribe-to-comments/>
+# Inspired by http://txfx.net/code/wordpress/subscribe-to-comments/
 #
 # ***** END LICENSE BLOCK *****
 
@@ -149,4 +147,3 @@ $changes = $si->synchronize($s);
 $core->setVersion('subscribeToComments',$m_version);
 
 return true;
-?>

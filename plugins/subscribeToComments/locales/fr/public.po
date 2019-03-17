@@ -1,105 +1,188 @@
+# Language: Français
+# Module: subscribeToComments - 1.4-alpha10
+# Date: 2018-01-19 18:34:17
+# Translated with translater 2017.05.10
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: subscribeToComments 1.4-alpha1\n"
+"Project-Id-Version: subscribeToComments 1.4-alpha10\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2010-08-30T14:15:40+00:00\n"
-"Last-Translator: Ubuntu\n"
+"PO-Revision-Date: 2018-01-19T18:34:17+00:00\n"
+"Last-Translator: brol\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Account informations sent"
-msgstr "Informations sur le compte envoyées"
+#: default-templates/currywurst/subscribetocomments.html:4
+#: default-templates/currywurst/subscribetocomments.html:57
+#: default-templates/mustek/subscribetocomments.html:4
+#: default-templates/mustek/subscribetocomments.html:57
+#: inc/lib.subscribeToComments.tpl.php:290
+#: inc/lib.subscribeToComments.tpl.php:330
+msgid "Subscribe to comments"
+msgstr "Abonnement aux commentaires"
 
-msgid "Subscriptions removed"
-msgstr "Abonnements effacés"
-
-msgid "Logged out"
-msgstr "Déconnecté"
-
-msgid "Logged in"
-msgstr "Connecté"
-
-msgid "Emails blocked"
-msgstr "Emails bloqués"
-
-msgid "Emails allowed"
-msgstr "Emails autorisés"
-
-msgid "An email has been sent to the new email address"
-msgstr "Un email a été envoyé à la nouvelle adresse email"
-
-msgid "Email address changed"
-msgstr "Adresse email changée"
-
-msgid "Account deleted"
-msgstr "Compte supprimé"
-
-msgid "Subscribed to the entry"
-msgstr "Abonné au billet"
-
-msgid "Subscribe to receive following comments by email or manage subscriptions"
-msgstr "S'abonner pour recevoir les commentaires suivants par email ou modifier les abonnements"
-
-msgid "Subscribe to receive following comments by email"
-msgstr "S'abonner pour recevoir les commentaires suivants par email"
-
-msgid "Error:"
-msgstr "Erreur&nbsp;:"
-
-msgid "Account"
-msgstr "Compte"
-
-msgid "Allow emails?"
-msgstr "Autoriser les emails ?"
-
-msgid "Allow emails"
-msgstr "Autoriser les emails"
-
-msgid "Block emails?"
-msgstr "Bloquer les emails ?"
-
-msgid "Block emails"
-msgstr "Bloquer les emails"
-
-msgid "Change email address"
-msgstr "Changer l'adresse email"
-
-msgid "Click on the button below to resend informations to your email address."
-msgstr "Cliquez sur le bouton ci-dessous pour renvoyer les informations à votre adresse email."
-
-msgid "Delete all subscriptions and the account"
-msgstr "Supprimer tous les abonnements et le compte"
-
-msgid "Delete the account?"
-msgstr "Supprimer le compte ?"
-
-msgid "Entries"
-msgstr "Billets"
-
-msgid "Get back to"
-msgstr "Revenir à"
-
+#: default-templates/currywurst/subscribetocomments.html:37
+#: default-templates/mustek/subscribetocomments.html:37
 msgid "Remove selected subscriptions?"
 msgstr "Supprimer les abonnements sélectionnés ?"
 
-msgid "Remove selected subscriptions"
-msgstr "Supprimer les abonnements sélectionnés"
+#: default-templates/currywurst/subscribetocomments.html:42
+#: default-templates/mustek/subscribetocomments.html:42
+msgid "Allow emails?"
+msgstr "Autoriser les emails ?"
 
-msgid "Remove subscriptions"
-msgstr "Supprimer des abonnements"
+#: default-templates/currywurst/subscribetocomments.html:43
+#: default-templates/mustek/subscribetocomments.html:43
+msgid "Block emails?"
+msgstr "Bloquer les emails ?"
 
+#: default-templates/currywurst/subscribetocomments.html:44
+#: default-templates/mustek/subscribetocomments.html:44
+msgid "Delete the account?"
+msgstr "Supprimer le compte ?"
+
+#: default-templates/currywurst/subscribetocomments.html:71
+#: default-templates/currywurst/subscribetocomments.html:104
+#: default-templates/mustek/subscribetocomments.html:71
+#: default-templates/mustek/subscribetocomments.html:104
+msgid "Get back to"
+msgstr "Revenir à"
+
+#: default-templates/currywurst/subscribetocomments.html:74
+#: default-templates/currywurst/subscribetocomments.html:107
+#: default-templates/mustek/subscribetocomments.html:74
+#: default-templates/mustek/subscribetocomments.html:107
 msgid "Subscribe to one entry"
 msgstr "S'abonner à un billet"
 
+#: default-templates/currywurst/subscribetocomments.html:79
+#: default-templates/mustek/subscribetocomments.html:79
 msgid "To login, you have to click on the link given in previously sent emails."
 msgstr "Pour vous connecter, vous devez cliquer sur le lien donné dans les emails envoyés précédemment."
 
+#: default-templates/currywurst/subscribetocomments.html:80
+#: default-templates/mustek/subscribetocomments.html:80
+msgid "Click on the button below to resend informations to your email address."
+msgstr "Cliquez sur le bouton ci-dessous pour renvoyer les informations à votre adresse email."
+
+#: default-templates/currywurst/subscribetocomments.html:95
+#: default-templates/mustek/subscribetocomments.html:95
+msgid "Resend account informations to this email address"
+msgstr "Renvoyer les informations du compte à cette adresse email"
+
+#: default-templates/currywurst/subscribetocomments.html:101
+#: default-templates/mustek/subscribetocomments.html:101
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: default-templates/currywurst/subscribetocomments.html:115
+#: default-templates/mustek/subscribetocomments.html:115
+msgid "Remove subscriptions"
+msgstr "Supprimer des abonnements"
+
+#: default-templates/currywurst/subscribetocomments.html:132
+#: default-templates/mustek/subscribetocomments.html:132
+msgid "invert selection"
+msgstr "inverser la sélection"
+
+#: default-templates/currywurst/subscribetocomments.html:134
+#: default-templates/mustek/subscribetocomments.html:134
+msgid "Remove selected subscriptions"
+msgstr "Supprimer les abonnements sélectionnés"
+
+#: default-templates/currywurst/subscribetocomments.html:137
+#: default-templates/mustek/subscribetocomments.html:137
+msgid "Account"
+msgstr "Compte"
+
+#: default-templates/currywurst/subscribetocomments.html:139
+#: default-templates/currywurst/subscribetocomments.html:149
+#: default-templates/mustek/subscribetocomments.html:139
+#: default-templates/mustek/subscribetocomments.html:149
+msgid "Change email address"
+msgstr "Changer l'adresse email"
+
+#: default-templates/currywurst/subscribetocomments.html:142
+#: default-templates/mustek/subscribetocomments.html:142
+msgid "New email address:"
+msgstr "Nouvelle adresse email :"
+
+#: default-templates/currywurst/subscribetocomments.html:146
+#: default-templates/mustek/subscribetocomments.html:146
 msgid "You'll have 24 hours to click on the link sent to the new email address to confirm the change."
 msgstr "Vous aurez 24 heures pour cliquer sur le lien envoyé à la nouvelle adresse email pour confirmer le changement."
 
-msgid "Resend account informations to this email address"
-msgstr "Renvoyer les informations du compte à cette adresse email"
+#: default-templates/currywurst/subscribetocomments.html:153
+#: default-templates/mustek/subscribetocomments.html:153
+msgid "Allow emails"
+msgstr "Autoriser les emails"
+
+#: default-templates/currywurst/subscribetocomments.html:156
+#: default-templates/mustek/subscribetocomments.html:156
+msgid "Block emails"
+msgstr "Bloquer les emails"
+
+#: default-templates/currywurst/subscribetocomments.html:160
+#: default-templates/mustek/subscribetocomments.html:160
+msgid "Delete all subscriptions and the account"
+msgstr "Supprimer tous les abonnements et le compte"
+
+#: inc/lib.subscribeToComments.document.php:173
+msgid "Account informations sent"
+msgstr "Informations sur le compte envoyées"
+
+#: inc/lib.subscribeToComments.document.php:176
+msgid "Subscriptions removed"
+msgstr "Abonnements effacés"
+
+#: inc/lib.subscribeToComments.document.php:179
+msgid "Logged out"
+msgstr "Déconnecté"
+
+#: inc/lib.subscribeToComments.document.php:182
+#: inc/lib.subscribeToComments.tpl.php:237
+#: index.php:49
+msgid "Logged in"
+msgstr "Connecté"
+
+#: inc/lib.subscribeToComments.document.php:185
+msgid "Emails blocked"
+msgstr "Emails bloqués"
+
+#: inc/lib.subscribeToComments.document.php:188
+msgid "Emails allowed"
+msgstr "Emails autorisés"
+
+#: inc/lib.subscribeToComments.document.php:191
+msgid "An email has been sent to the new email address"
+msgstr "Un email a été envoyé à la nouvelle adresse email"
+
+#: inc/lib.subscribeToComments.document.php:194
+msgid "Email address changed"
+msgstr "Adresse email changée"
+
+#: inc/lib.subscribeToComments.document.php:197
+msgid "Account deleted"
+msgstr "Compte supprimé"
+
+#: inc/lib.subscribeToComments.document.php:200
+msgid "Subscribed to the entry"
+msgstr "Abonné au billet"
+
+#: inc/lib.subscribeToComments.tpl.php:297
+#: inc/lib.subscribeToComments.tpl.php:308
+#: inc/lib.subscribeToComments.tpl.php:337
+#: index.php:69
+msgid "Subscribe to receive following comments by email or manage subscriptions"
+msgstr "S'abonner pour recevoir les commentaires suivants par email ou modifier les abonnements"
+
+#: inc/lib.subscribeToComments.tpl.php:301
+#: inc/lib.subscribeToComments.tpl.php:309
+#: inc/lib.subscribeToComments.tpl.php:341
+#: index.php:73
+msgid "Subscribe to receive following comments by email"
+msgstr "S'abonner pour recevoir les commentaires suivants par email"
 

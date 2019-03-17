@@ -1,4 +1,4 @@
-<?php 
+<?php
 # ***** BEGIN LICENSE BLOCK *****
 #
 # This file is part of Subscribe to comments.
@@ -23,19 +23,7 @@
 #
 # ***** END LICENSE BLOCK *****
 
-if (!defined('DC_RC_PATH')) {return;}
-
-$this->registerModule(
-     /* Name */                      "Subscribe to comments",
-     /* Description*/                "Subscribe to comments by email",
-     /* Author */                    "Moe (http://gniark.net/)",
-     /* Version */                   '1.4-alpha10',
-	/* Properties */
-	array(
-		'permissions' => 'admin',
-		'type' => 'plugin',
-		'dc_min' => '2.11',
-		'support' => 'http://lab.dotclear.org/wiki/plugin/subscribeToComments',
-		'details' => 'http://plugins.dotaddict.org/dc2/details/subscribeToComments'
-		)
-);
+if (!isset($__resources['help']['subscribeToComments']))
+{
+	$__resources['help']['subscribeToComments'] = dirname(__FILE__).'/help/subscribeToComments.html';
+}

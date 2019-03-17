@@ -26,15 +26,17 @@ function deliverPage($page, $cache=false){
       header('ETag: '.$page['etag']);
 
       if ($cache){
-      	header('Cache-Control: public, max-age=60, must-revalidate');
+      		header('Cache-Control: public, max-age=60, must-revalidate');
       } else{
 		header('Cache-control: no-cache');
       }
 
-	  // Send additional headers if any
-	  foreach ($page['headers'] as $header) {
-			header($header);
-	  }
+      // Send additional headers if any
+      if (isset($page['headers'])){
+      	foreach ($page['headers'] as $header) {
+		header($header);
+      	}
+      }
 
       echo($content);
       exit();

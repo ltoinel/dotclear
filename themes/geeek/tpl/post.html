@@ -4,18 +4,8 @@
 <title>{{tpl:EntryTitle encode_html="1"}}</title>
   
 {{tpl:include src="fragments/_meta.html"}}
-<link rel="canonical" href="{{tpl:EntryURL}}" />
-<link rel="alternate" type="application/rss+xml" title="Comments" href="{{tpl:BlogFeedURL type="rss2"}}/comments/{{tpl:EntryID}}" />
-<link rel="alternate" type="application/atom" title="Comments" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" />
 
-{{tpl:include src="fragments/_opengraph-article.html"}}
-
-<tpl:EntryIf extended="1">
-<meta name="description" property="og:description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryCategory}}: {{tpl:EntryExcerpt encode_html="1" remove_html="1" cut_string="180"}}" />
-</tpl:EntryIf>
-<tpl:EntryIf extended="0">
-<meta name="description" property="og:description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryCategory}}: {{tpl:EntryContent full="0" encode_html="1" remove_html="1" cut_string="155"}}" />
-</tpl:EntryIf>
+{{tpl:include src="fragments/_meta-article.html"}}
 
 {{tpl:include src="fragments/_head.html"}}
  

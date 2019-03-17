@@ -6,25 +6,21 @@ $social_counter_settings = array(
         
    // RSS
    'rss_db_host' => 'localhost',
-   'rss_db_name' => 'x',
-   'rss_db_user' => 'x',
-   'rss_db_pass' => 'x',
+   'rss_db_name' => 'feeds',
+   'rss_db_user' => 'feeds',
+   'rss_db_pass' => '4MheFGfFNCzbdJp7',
  
    //twitter       
-   'twitter_user' => 'x',
-   'oauth_access_token' => "x",
-   'oauth_access_token_secret' => "x",
-   'consumer_key' => "x",
-   'consumer_secret' => "x",
+   'twitter_user' => 'ltoinel',
+   'oauth_access_token' => "13645142-1xGlYGpEC2tInSDVVAENm5Wz0S0bL0N8egeiiodQX",
+   'oauth_access_token_secret' => "mVIjKn4MSKJdwFXJr7vShORk9uAXvu1qNhVWwxM7uiuIT",
+   'consumer_key' => "1xq4S03vIvK1Tnk9eKnvO7fu3",
+   'consumer_secret' => "utnCXbLSD1nNSLhYyuLYRFFhTIE8XV5fIWgn7WArYZhcnN9JKl",
 
    //facebook      
    'facebook_id' => 'geeek.org',
-   'facebook_app_id' => 'x',
-   'facebook_app_secret' => 'x',
-             
-   //Google API Key for Google related services
-   'google_api_key' => 'x',
-   'googleplus_id' => 'x',      
+   'facebook_app_id' => '111114779937',
+   'facebook_app_secret' => '3a2425a734062fadd7e4ed4c7feada73',
              
    //others
     'cache_file_name' => 'counter.json'
@@ -88,22 +84,6 @@ function twitter_follower_count(){
     return $count ;
 }
 
-/**
-* Google+ Follower Count
-*/
-function googleplus_follower_count() {      
-    global $social_counter_settings;
-    $settings = $social_counter_settings;
-    $count = -1;                
-    $gUrl = "https://www.googleapis.com/plus/v1/people/".$settings['googleplus_id']."?key=".$settings['google_api_key'];            
-     
-    $response = file_get_contents($gUrl);           
-    $fb = json_decode($response);
-    if ( isset( $fb->circledByCount)) {              
-                $count = intval($fb->circledByCount);                    
-    }                   
-    return $count ;
-}
 
 /**
  * Caching Function
@@ -151,7 +131,6 @@ $social_counter = array(
    'rss' => -1,
    'twitter' => -1,
    'facebook' => -1,
-   'googleplus' => -1,
 );
 
 echo json_encode(process_counts());

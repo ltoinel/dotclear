@@ -3033,7 +3033,6 @@ $( document ).ready( function() {
           $("#social .list-group-item.rss .count").html(data.rss + " Lecteurs");
           $("#social .list-group-item.facebook .count").html(data.facebook + " Abonnés");
           $("#social .list-group-item.twitter .count").html(data.twitter + " Followers");
-          $("#social .list-group-item.google .count").html(data.googleplus + " Membres");
         }
       });
   
@@ -3106,15 +3105,6 @@ $( document ).ready( function() {
 		$.getScript("https://platform.twitter.com/widgets.js")
         }
 
-        //Google+
-        if (typeof (gapi) != 'undefined') {
-                gapi.plusone.render(element.find(".g-plusone").get(0),{
-        		'href':url
-		});
-        } else {
-		$.getScript("https://apis.google.com/js/plusone.js?publisherid=107703659110168677069")
-        }
-
         //Facebook
         if (typeof (FB) != 'undefined') {
          	FB.XFBML.parse(element.get(0));	
@@ -3137,7 +3127,7 @@ $( document ).ready( function() {
 	content:    function(){
         var url = $(this).attr("data-url");
         var text = $(this).attr("data-text");
-        return '<div class="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'+url+'" data-text="'+text+'" data-via="ltoinel" data-lang="fr" data-dnt="true">Tweeter</a></div><div class="fb-like" data-href="'+url+'" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false"></div><div class="g-plusone" data-size="medium" data-href="'+url+'"></div>';
+        return '<div class="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'+url+'" data-text="'+text+'" data-via="ltoinel" data-lang="fr" data-dnt="true">Tweeter</a></div><div class="fb-like" data-href="'+url+'" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false"></div>';
     }
     });
 

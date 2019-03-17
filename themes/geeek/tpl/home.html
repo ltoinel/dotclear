@@ -4,32 +4,8 @@
 <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
 
 {{tpl:include src="fragments/_meta.html"}}
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "WebSite",
-  "url": "https://www.geeek.org/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.geeek.org/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
 
-<link itemprop="url" rel="canonical" href="{{tpl:BlogURL}}" />
-
-<tpl:PaginationIf start="1">
-<meta itemprop="description" name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" encode_html="1"}}" />
-</tpl:PaginationIf>
-<tpl:PaginationIf start="0">
-<meta itemprop="description" name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" encode_html="1"}} ({{tpl:lang page}} {{tpl:PaginationCurrent}})" />
-</tpl:PaginationIf>
-<meta itemprop="keywords" name="keywords" content="<tpl:Tags limit="12">{{tpl:TagID}},</tpl:Tags>" />
-<meta itemprop="creator" content="Ludovic Toinel">
-<meta itemprop="name" content="{{tpl:BlogName encode_html="1"}}" />
-
-{{tpl:include src="fragments/_opengraph-blog.html"}}
+{{tpl:include src="fragments/_meta-blog.html"}}
   
 {{tpl:include src="fragments/_head.html"}}
 </head>

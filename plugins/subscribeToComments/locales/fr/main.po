@@ -1,81 +1,151 @@
+# Language: Français
+# Module: subscribeToComments - 1.4-alpha10
+# Date: 2018-01-19 18:34:18
+# Translated with translater 2017.05.10
 
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: subscribeToComments 1.4-alpha1\n"
+"Project-Id-Version: subscribeToComments 1.4-alpha10\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2010-08-30T14:15:40+00:00\n"
-"Last-Translator: Ubuntu\n"
+"PO-Revision-Date: 2018-01-19T18:34:18+00:00\n"
+"Last-Translator: brol\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: _admin.php:28
+#: _admin.php:173
+#: inc/lib.subscribeToComments.tpl.php:290
+#: inc/lib.subscribeToComments.tpl.php:330
+#: index.php:30
+#: index.php:64
+#: index.php:87
+#: index.php:166
+#: index.php:377
+#: index.php:390
+#: index.php:402
+#: index.php:559
+#: index.php:605
+#: index.php:778
+#: index.php:783
 msgid "Subscribe to comments"
 msgstr "Abonnement aux commentaires"
 
+#: _admin.php:88
 msgid "<img src=\"images/check-off.png\" alt=\"%1$s\" title=\"%1$s\" /> Notification email not sent, click on <strong>%2$s</strong>."
 msgstr "<img src=\"images/check-off.png\" alt=\"%1$s\" title=\"%1$s\" /> Email de notification non envoyé, cliquez sur <strong>%2$s</strong>."
 
+#: _admin.php:89
 msgid "not sent"
 msgstr "non envoyé"
 
+#: _admin.php:89
+msgid "save"
+msgstr "enregistrer"
+
+#: _admin.php:94
 msgid "<img src=\"images/check-on.png\" alt=\"%1$s\" title=\"%1$s\" /> Notification email sent."
 msgstr "<img src=\"images/check-on.png\" alt=\"%1$s\" title=\"%1$s\" /> Email de notification envoyé."
 
+#: _admin.php:97
+msgid "Subscribe to comments:"
+msgstr "Abonnement aux commentaires :"
+
+#: inc/class.subscriber.php:65
+#: inc/class.subscriber.php:315
 msgid "Invalid email address or key."
 msgstr "Adresse email ou clé invalide."
 
+#: inc/class.subscriber.php:151
+#: inc/lib.subscribeToComments.document.php:62
 msgid "Invalid post ID."
 msgstr "Identifiant du billet invalide."
 
+#: inc/class.subscriber.php:156
 msgid "Invalid post."
 msgstr "Billet invalide."
 
+#: inc/class.subscriber.php:200
+#: inc/class.subscriber.php:502
 msgid "This email address already exists."
 msgstr "Cette adresse email existe déjà."
 
+#: inc/class.subscriber.php:396
 msgid "Reload the page"
 msgstr "Recharger la page"
 
+#: inc/class.subscriber.php:495
+#: inc/lib.subscribeToComments.php:56
 msgid "Invalid key."
 msgstr "Clé invalide."
 
+#: inc/class.subscriber.php:506
 msgid "Link expired, request another email."
 msgstr "Lien périmé, demandez un autre email."
 
+#: inc/lib.subscribeToComments.php:43
 msgid "Invalid email address."
 msgstr "Adresse email invalide."
 
+#: inc/lib.subscribeToComments.tpl.php:243
+#: index.php:47
+#: index.php:565
+#: index.php:580
+#: index.php:587
 msgid "Receive following comments by email"
 msgstr "Recevoir les commentaires suivants par email"
 
+#: index.php:87
 msgid "%s's page URL"
 msgstr "URL de la page %s"
 
+#: index.php:105
 msgid "New email address"
 msgstr "Nouvelle adresse email"
 
+#: index.php:291
+msgid "Subscribers deleted successfully."
+msgstr "Abonnés supprimés avec succès"
+
+#: index.php:620
+msgid "Examples:"
+msgstr "Exemples :"
+
+#: index.php:686
 msgid "no subscriber"
 msgstr "pas d'abonné"
 
+#: index.php:695
+msgid "Click on a subscriber in order to manage its subscriptions."
+msgstr "Cliquer sur un abonné pour modifier ses abonnements"
+
+#: index.php:699
+#: index.php:748
+msgid "Delete subscribers"
+msgstr "Supprimer les abonnés"
+
+#: index.php:703
+msgid "Subscriber"
+msgstr "Abonné"
+
+#: index.php:705
+msgid "First comment date"
+msgstr "Date du premier commentaire"
+
+#: index.php:716
+msgid "Subscribers with at least one comment marked as spam:"
+msgstr "Abonnés avec au moins un commentaire marqué comme indésirable&nbsp;:"
+
+#: index.php:726
+msgid "Subscribers with no comments:"
+msgstr "Abonnés sans commentaires&nbsp;:"
+
+#: index.php:767
 msgid "This will send a email, if you don't receive it, try to <a href=\"%s\">change the way Dotclear send emails</a>."
 msgstr "Ceci enverra un email, si vous ne le recevez pas, essayez de <a href=\"%s\">changer la façon dont Dotclear envoie les emails</a>"
 
-msgid "Example:"
-msgstr "Exemple&nbsp;:"
-
-msgid "Home"
-msgstr "Accueil"
-
-msgid "invert selection"
-msgstr "inverser la sélection"
-
-msgid "Logout"
-msgstr "Déconnexion"
-
-msgid "select all"
-msgstr "tout sélectionner"
-
-msgid "Subscribe to"
-msgstr "S'abonner à"
+msgid "Subscribe to comments by email"
+msgstr "Abonnement aux commentaires par email"
 

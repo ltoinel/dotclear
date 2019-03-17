@@ -1,33 +1,33 @@
 <?php 
 # ***** BEGIN LICENSE BLOCK *****
 #
-# This file is part of Subscribe to comments, a plugin for Dotclear 2
-# Copyright (C) 2008,2009,2010 Moe (http://gniark.net/)
+# This file is part of Subscribe to comments.
+# Copyright (C) 2008-2018 Moe (http://gniark.net/)
 #
-# Subscribe to comments is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License v2.0
-# as published by the Free Software Foundation.
+# Subscribe to comments is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 3 of the License, or
+# (at your option) any later version.
 #
 # Subscribe to comments is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
-# You should have received a copy of the GNU General Public
-# License along with this program. If not, see
-# <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Icon (icon.png) and images are from Silk Icons :
-# <http://www.famfamfam.com/lab/icons/silk/>
+# Icon (icon.png) is from Silk Icons : http://www.famfamfam.com/lab/icons/silk/
 #
-# Inspired by Subscribe to Comments for WordPress :
-# <http://txfx.net/code/wordpress/subscribe-to-comments/>
+# Inspired by http://txfx.net/code/wordpress/subscribe-to-comments/
 #
 # ***** END LICENSE BLOCK *****
 
 if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/admin');
+
+$page_title = __('Subscribe to comments');
 
 # format tables' tbody
 function tbody ($array)
@@ -299,7 +299,7 @@ if (isset($_GET['tab']))
 ?>
 <html>
 <head>
-	<title><?php echo __('Subscribe to comments'); ?></title>
+	<title><?php echo $page_title; ?></title>
 	<?php echo dcPage::jsPageTabs($default_tab); ?>
 	<style type="text/css">
 		p.code {
@@ -346,19 +346,25 @@ if (isset($_GET['tab']))
 			});
 			
 			$('input[name="delete_subscribers"]').click(function() {
-				return window.confirm('Delete selected subscribers?');
+				return window.confirm('<?php echo __('Delete selected subscribers?'); ?>');
 			});
 		});
 	//]]>
 	</script>
 </head>
 <body>
+<?php
 
-	<h2><?php echo html::escapeHTML($core->blog->name).' &rsaquo; '.__('Subscribe to comments'); ?></h2>
+	echo dcPage::breadcrumb(
+		array(
+			html::escapeHTML($core->blog->name) => '',
+			'<span class="page-title">'.$page_title.'</span>' => ''
+		));
 
-	<?php 
-		if (!empty($msg)) {echo '<p class="message">'.$msg.'</p>';}
-	?>
+if (!empty($msg)) {
+  dcPage::success($msg);
+}
+?>
 
 <?php if (!$settings->subscribetocomments_active)
 { ?>
@@ -667,7 +673,7 @@ if (isset($_GET['tab']))
 				'(M.post_id = P.post_id)').
 				' AND (M.meta_type = \'subscriber\') '.
 				' AND P.blog_id = \''.$core->con->escape($core->blog->id).'\''.
-				' GROUP BY S.email'.
+				' GROUP BY S.id'.
 				' ORDER BY lowest_comment_status DESC, '.
 					'comments_count DESC, '.
 					'first_comment_dt ASC';
@@ -745,17 +751,10 @@ if (isset($_GET['tab']))
 			}
 		?>
 	</div>
-	
-	<div id="help" title="<?php echo __('Help'); ?>">
-		<div class="help-content">
-			<h2><?php echo(__('Help')); ?></h2>
-			<p><?php printf(__('%s send notification emails to the subscribers of a post when:'),__('Subscribe to comments')); ?></p>
-			<ul>
-				<li><?php echo(__('a comment is posted and published immediatly')); ?></li>
-				<li><?php echo(__('a pending comment is published')); ?>
-			</ul>
-			<p><?php echo __('If this weblog is hosted by free.fr, create a <code>/sessions/</code> directory in the root directory of the website.'); ?></p>
-			<p><?php echo __('To use this plugin, you have to test if the server can send emails:'); ?></p>
+
+	<div class="multi-part" id="test" title="<?php echo __('Test'); ?>">
+		<h3><?php echo(__('Test')); ?></h3>
+		<p><?php echo __('To use this plugin, you have to test if the server can send emails:'); ?></p>
 			<form method="post" action="<?php echo http::getSelfURI(); ?>">
 				<fieldset>
 					<legend><?php echo __('Test'); ?></legend>
@@ -771,13 +770,8 @@ if (isset($_GET['tab']))
 					<p><input type="submit" name="test" value="<?php echo __('Try to send an email'); ?>" /></p>
 				</fieldset>
 			</form>
-			<hr />
-			<p><?php printf(__('Inspired by <a href="%1$s">%2$s</a>'),
-				'http://txfx.net/code/wordpress/subscribe-to-comments/',
-				__('Subscribe to comments for WordPress')); ?></p>
-		</div>
-	</div>
-	
+  </div>
+
 	<hr />
 	
 	<p>
@@ -788,6 +782,7 @@ if (isset($_GET['tab']))
 		<a href="<?php echo(subscribeToComments::url()); ?>">
 		<?php printf(__('View the %s page'),__('Subscribe to comments')); ?></a>	
 	</p>
+	<?php dcPage::helpBlock('subscribeToComments'); ?>
 <?php } ?>
 </body>
 </html>
