@@ -1,27 +1,36 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Antispam, a plugin for Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+/**
+ * @brief antispam, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
 
-$__autoload['dcSpamFilter'] = dirname(__FILE__).'/inc/class.dc.spamfilter.php';
-$__autoload['dcSpamFilters'] = dirname(__FILE__).'/inc/class.dc.spamfilters.php';
-$__autoload['dcAntispam'] = dirname(__FILE__).'/inc/lib.dc.antispam.php';
-$__autoload['dcAntispamURL'] = dirname(__FILE__).'/inc/lib.dc.antispam.url.php';
+if (!defined('DC_RC_PATH')) {return;}
 
-$__autoload['dcFilterIP'] = dirname(__FILE__).'/filters/class.dc.filter.ip.php';
-$__autoload['dcFilterIpLookup'] = dirname(__FILE__).'/filters/class.dc.filter.iplookup.php';
-$__autoload['dcFilterLinksLookup'] = dirname(__FILE__).'/filters/class.dc.filter.linkslookup.php';
-$__autoload['dcFilterWords'] = dirname(__FILE__).'/filters/class.dc.filter.words.php';
+$__autoload['dcSpamFilter']  = dirname(__FILE__) . '/inc/class.dc.spamfilter.php';
+$__autoload['dcSpamFilters'] = dirname(__FILE__) . '/inc/class.dc.spamfilters.php';
+$__autoload['dcAntispam']    = dirname(__FILE__) . '/inc/lib.dc.antispam.php';
+$__autoload['dcAntispamURL'] = dirname(__FILE__) . '/inc/lib.dc.antispam.url.php';
 
-$core->spamfilters = array('dcFilterIP','dcFilterIpLookup','dcFilterWords','dcFilterLinksLookup');
+$__autoload['dcFilterIP']          = dirname(__FILE__) . '/filters/class.dc.filter.ip.php';
+$__autoload['dcFilterIpLookup']    = dirname(__FILE__) . '/filters/class.dc.filter.iplookup.php';
+$__autoload['dcFilterLinksLookup'] = dirname(__FILE__) . '/filters/class.dc.filter.linkslookup.php';
+$__autoload['dcFilterWords']       = dirname(__FILE__) . '/filters/class.dc.filter.words.php';
 
-$core->url->register('spamfeed','spamfeed','^spamfeed/(.+)$',array('dcAntispamURL','spamFeed'));
-$core->url->register('hamfeed','hamfeed','^hamfeed/(.+)$',array('dcAntispamURL','hamFeed'));
+$core->spamfilters = array('dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilterLinksLookup');
+
+$core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', array('dcAntispamURL', 'spamFeed'));
+$core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', array('dcAntispamURL', 'hamFeed'));
+
+if (!defined('DC_CONTEXT_ADMIN')) {return false;}
+
+// Admin mode
+
+$__autoload['dcAntispamRest'] = dirname(__FILE__) . '/_services.php';
+
+// Register REST methods
+$core->rest->addFunction('getSpamsCount', array('dcAntispamRest', 'getSpamsCount'));

@@ -1,44 +1,44 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of importExport, a plugin for DotClear2.
-#
-# Copyright (c) 2003-2012 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+/**
+ * @brief importExport, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
 
-$__autoload['dcIeModule'] = 	dirname(__FILE__).'/inc/class.dc.ieModule.php';
+if (!defined('DC_RC_PATH')) {return;}
 
-$__autoload['dcImportFlat'] = 	dirname(__FILE__).'/inc/class.dc.import.flat.php';
-$__autoload['dcImportFeed'] = 	dirname(__FILE__).'/inc/class.dc.import.feed.php';
+$__autoload['dcIeModule'] = dirname(__FILE__) . '/inc/class.dc.ieModule.php';
 
-$__autoload['dcExportFlat'] = 	dirname(__FILE__).'/inc/class.dc.export.flat.php';
+$__autoload['dcImportFlat'] = dirname(__FILE__) . '/inc/class.dc.import.flat.php';
+$__autoload['dcImportFeed'] = dirname(__FILE__) . '/inc/class.dc.import.feed.php';
 
-$__autoload['dcImportDC1'] = 	dirname(__FILE__).'/inc/class.dc.import.dc1.php';
-$__autoload['dcImportWP'] = 	dirname(__FILE__).'/inc/class.dc.import.wp.php';
+$__autoload['dcExportFlat'] = dirname(__FILE__) . '/inc/class.dc.export.flat.php';
 
-$__autoload['flatBackup'] = 	dirname(__FILE__).'/inc/flat/class.flat.backup.php';
-$__autoload['flatImport'] = 	dirname(__FILE__).'/inc/flat/class.flat.import.php';
-$__autoload['flatExport'] = 	dirname(__FILE__).'/inc/flat/class.flat.export.php';
+$__autoload['dcImportDC1'] = dirname(__FILE__) . '/inc/class.dc.import.dc1.php';
+$__autoload['dcImportWP']  = dirname(__FILE__) . '/inc/class.dc.import.wp.php';
 
-$core->addBehavior('importExportModules','registerIeModules');
+$__autoload['flatBackup'] = dirname(__FILE__) . '/inc/flat/class.flat.backup.php';
+$__autoload['flatImport'] = dirname(__FILE__) . '/inc/flat/class.flat.import.php';
+$__autoload['flatExport'] = dirname(__FILE__) . '/inc/flat/class.flat.export.php';
+
+$core->addBehavior('importExportModules', 'registerIeModules');
 
 function registerIeModules($modules, $core)
 {
-	$modules['import'] = array_merge($modules['import'], array('dcImportFlat'));
-	$modules['import'] = array_merge($modules['import'], array('dcImportFeed'));
+    $modules['import'] = array_merge($modules['import'], array('dcImportFlat'));
+    $modules['import'] = array_merge($modules['import'], array('dcImportFeed'));
 
-	$modules['export'] = array_merge($modules['export'], array('dcExportFlat'));
+    $modules['export'] = array_merge($modules['export'], array('dcExportFlat'));
 
-	if ($core->auth->isSuperAdmin()) {
-		$modules['import'] = array_merge($modules['import'], array('dcImportDC1'));
-		$modules['import'] = array_merge($modules['import'], array('dcImportWP'));
-	}
+    if ($core->auth->isSuperAdmin()) {
+        $modules['import'] = array_merge($modules['import'], array('dcImportDC1'));
+        $modules['import'] = array_merge($modules['import'], array('dcImportWP'));
+    }
 }
 
-$__autoload['ieMaintenanceExportblog'] = dirname(__FILE__).'/inc/lib.ie.maintenance.php';
-$__autoload['ieMaintenanceExportfull'] = dirname(__FILE__).'/inc/lib.ie.maintenance.php';
+$__autoload['ieMaintenanceExportblog'] = dirname(__FILE__) . '/inc/lib.ie.maintenance.php';
+$__autoload['ieMaintenanceExportfull'] = dirname(__FILE__) . '/inc/lib.ie.maintenance.php';

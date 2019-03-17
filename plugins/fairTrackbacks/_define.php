@@ -1,24 +1,24 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+/**
+ * @brief fairTrackbacks, an antispam filter plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Fair Trackbacks",
-	/* Description*/		"Trackback validity check",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.1',
-	array(
-		'permissions' =>	'usage,contentadmin',
-		'priority' =>		200,
-		'type'		=>		'plugin'
-	)
+    "Fair Trackbacks",          // Name
+    "Trackback validity check", // Description
+    "Olivier Meunier",          // Author
+    '1.1',                      // Version
+    array(
+        'permissions' => 'usage,contentadmin',
+        'priority'    => 200,
+        'type'        => 'plugin'
+    )
 );

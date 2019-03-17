@@ -1,24 +1,24 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of blowupConfig, a plugin for Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+/**
+ * @brief blowupConfig, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
 
-$version = $core->plugins->moduleInfo('blowupConfig','version');
-if (version_compare($core->getVersion('blowupConfig'),$version,'>=')) {
-	return;
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
+
+$version = $core->plugins->moduleInfo('blowupConfig', 'version');
+if (version_compare($core->getVersion('blowupConfig'), $version, '>=')) {
+    return;
 }
 
-$settings = new dcSettings($core,null);
+$settings = new dcSettings($core, null);
 $settings->addNamespace('themes');
-$settings->themes->put('blowup_style','','string','Blow Up  custom style',false);
+$settings->themes->put('blowup_style', '', 'string', 'Blow Up  custom style', false);
 
-$core->setVersion('blowupConfig',$version);
+$core->setVersion('blowupConfig', $version);
 return true;

@@ -1,15 +1,15 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+/**
+ * @brief akismet, an antispam filter plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
 
-$__autoload['dcFilterAkismet'] = dirname(__FILE__).'/class.dc.filter.akismet.php';
-$core->spamfilters[] = 'dcFilterAkismet';
+if (!defined('DC_RC_PATH')) {return;}
+
+$__autoload['dcFilterAkismet'] = dirname(__FILE__) . '/class.dc.filter.akismet.php';
+$core->spamfilters[]           = 'dcFilterAkismet';

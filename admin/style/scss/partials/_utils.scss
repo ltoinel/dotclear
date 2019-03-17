@@ -2,55 +2,13 @@
 /* color-picker.js */
 
 .color-color-picker {
-	border: 1px solid #000;
+	border: 1px solid $color-picker-border;
 	width: 195px;
-	background: #fff;
+	background: $color-picker-background;
 }
-
 
 /* _media_item.js */
 
 .color-div {
-	border: 1px solid #ccc;
-}
-
-
-/* fadings ('color' est utilisé comme variable, pas comme text color) */
-
-.colorBeginPassword,
-.colorBeginValidatorErr,
-.colorBeginUserMail {
-	color: #fff;
-}
-
-.colorEndPassword,
-.colorEndError,
-.colorEndValidatorErr,
-.colorEndUserMail {
-	color: #ffbaba;
-}
-
-.colorBeginMessage {
-	color: #ccc;
-}
-
-.colorEndMessage,
-.colorBeginValidatorMsg {
-	color: #676e78;
-}
-
-.colorBeginError {
-	color: #fefacd;
-}
-
-.colorBeginSuccess {
-	color: #9BCA1C;
-}
-
-.colorEndSuccess {
-	color: #bee74b;
-}
-
-.colorEndValidatorMsg {
-	color: #ffcc00;
+	border: 1px solid $color-div-border;
 }

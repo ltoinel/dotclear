@@ -1,30 +1,30 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+/**
+ * @brief blowupConfig, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+
+if (!defined('DC_RC_PATH')) {return;}
 
 if ($core->blog->settings->system->theme != 'default') {
-	return;
+    return;
 }
 
-require dirname(__FILE__).'/lib/class.blowup.config.php';
-$core->addBehavior('publicHeadContent',array('tplBlowupTheme','publicHeadContent'));
+require dirname(__FILE__) . '/lib/class.blowup.config.php';
+$core->addBehavior('publicHeadContent', array('tplBlowupTheme', 'publicHeadContent'));
 
 class tplBlowUpTheme
 {
-	public static function publicHeadContent($core)
-	{
-		$url = blowupConfig::publicCssUrlHelper();
-		if ($url) {
-			echo '<link rel="stylesheet" href="'.$url.'" type="text/css" />';
-		}
-	}
+    public static function publicHeadContent($core)
+    {
+        $url = blowupConfig::publicCssUrlHelper();
+        if ($url) {
+            echo '<link rel="stylesheet" href="' . $url . '" type="text/css" />';
+        }
+    }
 }

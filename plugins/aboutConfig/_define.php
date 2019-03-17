@@ -1,23 +1,23 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+/**
+ * @brief aboutConfig, a plugin for Dotclear 2
+ *
+ * @package Dotclear
+ * @subpackage Plugins
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"about:config",
-	/* Description*/		"Manage every blog configuration directive",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'0.5',
-	array(
-		'type'		=>		'plugin'
-	)
+    "about:config",                              // Name
+    "Manage every blog configuration directive", // Description
+    "Olivier Meunier",                           // Author
+    '0.5',                                       // Version
+    array(
+        'type' => 'plugin'
+    )
 
 );

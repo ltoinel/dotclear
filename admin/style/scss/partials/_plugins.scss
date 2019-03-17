@@ -20,18 +20,17 @@
 
 .modules tr.expand,
 .modules td.expand {
-	background: #f7f7f7;
-	border-color: #bee74b;
+	background: $modules-background;
+  border-color: $modules-border;
 }
 
 .modules tr.expand td:first-child {
 	font-weight: bold;
-	background: #dfe5e7;
+	background: $modules-background;
 }
 
 .modules td.expand {
 	padding: 0 0 1em;
-	border-top: 1px solid #eaeaea;
 	div {
 		display: inline-block;
 		vertical-align: top;
@@ -45,7 +44,7 @@
 
 .modules a {
 	&.module-details {
-		background: transparent url(search.png) no-repeat 2px center;
+		background: transparent url(search.svg) no-repeat 0 center;
 		padding: 4px 4px 0 20px;
 	}
 	&.module-support {
@@ -59,7 +58,8 @@
 }
 
 #m_search {
-	background: transparent url(search.png) no-repeat 4px center;
+  color: $search-color;
+	background: transparent url(search.svg) no-repeat 0 center;
 	padding-left: 20px;
 }
 
