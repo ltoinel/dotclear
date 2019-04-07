@@ -31,7 +31,7 @@
 
     <description>{{tpl:EntryExcerpt absolute_urls="1" encode_xml="1"}}
     {{tpl:EntryContent absolute_urls="1" encode_xml="1"}}
-   &lt;a href=&quot;https://www.geeek.org&quot;&gt;&lt;img src=&quot;https://feeds.geeek.org/tag.php?content_id={{tpl:EntryID}}&quot; alt=&quot;geeek&quot; style=&quot;margin:20px auto;width: 100px&quot; /&gt;&lt;/a&gt;
+   &lt;a href=&quot;https://www.geeek.org&quot;&gt;&lt;img src=&quot;https://feeds.geeek.org/tag.php?content_id={{tpl:EntryID}}&quot; alt=&quot;geeek&quot; style=&quot;margin:20px auto;border:0;width: 100px&quot; /&gt;&lt;/a&gt;
     </description>
 
     <tpl:Attachments>

@@ -10,7 +10,6 @@ $( document ).ready( function() {
           $("#social .list-group-item.rss .count").html(data.rss + " Lecteurs");
           $("#social .list-group-item.facebook .count").html(data.facebook + " Abonnés");
           $("#social .list-group-item.twitter .count").html(data.twitter + " Followers");
-          $("#social .list-group-item.google .count").html(data.googleplus + " Membres");
         }
       });
   
@@ -30,7 +29,7 @@ $( document ).ready( function() {
       $(this).find("a[href$=\".jpg\"],a[href$=\".jpeg\"],a[href$=\".png\"],a[href$=\".gif\"]").modalImages(lb_settings);
     })
 
-    //yash
+    //yash syntax higlighter
     var yash_path = "/?pf=yash/syntaxhighlighter/js/";
 
     function shGetPath()
@@ -66,8 +65,8 @@ $( document ).ready( function() {
       'sql                    @shBrushSql.js',
       'vb vbnet               @shBrushVb.js',
       'xml xhtml xslt html    @shBrushXml.js'
-   ));
-   SyntaxHighlighter.all();
+    ));
+    SyntaxHighlighter.all();
 
 
     // Initialize tooltips
@@ -81,15 +80,6 @@ $( document ).ready( function() {
                 twttr.widgets.load();
         } else {
 		$.getScript("https://platform.twitter.com/widgets.js")
-        }
-
-        //Google+
-        if (typeof (gapi) != 'undefined') {
-                gapi.plusone.render(element.find(".g-plusone").get(0),{
-        		'href':url
-		});
-        } else {
-		$.getScript("https://apis.google.com/js/plusone.js?publisherid=107703659110168677069")
         }
 
         //Facebook
@@ -131,6 +121,15 @@ $( document ).ready( function() {
    
     // Tab initialize
     $('#annexe').tab();
+
+    // Rateit initialize
+    $.fn.rateit.defaults.service_url = 'https://www.geeek.org/rateitservice/';
+    $.fn.rateit.defaults.service_func = 'rateItVote';
+    $.fn.rateit.defaults.image_size = '48';
+    $.fn.rateit.defaults.blog_uid = '174dd04649aae74eaf9b394b8a511698';
+    $.fn.rateit.defaults.enable_cookie = '1';
+    $.fn.rateit.defaults.msg_thanks = '';
+    $('.rateit').rateit();
 
 });
 
