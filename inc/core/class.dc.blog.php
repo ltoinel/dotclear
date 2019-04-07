@@ -1881,8 +1881,8 @@ class dcBlog
             '{t}'  => text::tidyURL($post_title),
             '{id}' => (integer) $post_id,
             // @HACK : Ajout d'un global ID pour Google News
-		    '{gid}' => str_pad(($post_id % 1000), 3, "0", STR_PAD_LEFT)
-		    // END @HACK
+	    '{gid}' => str_pad(($post_id % 1000), 3, "0", STR_PAD_LEFT)
+	    // END @HACK
         );
 
         # If URL is empty, we create a new one
@@ -1904,7 +1904,7 @@ class dcBlog
                     $url = $url . ".html";
             }
             // @HACK END
-
+	}
         # Let's check if URL is taken...
         $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
         "WHERE post_url = '" . $this->con->escape($url) . "' " .

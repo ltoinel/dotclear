@@ -45,17 +45,18 @@
 			<!-- # Entry without excerpt -->
 			{{tpl:EntryContent}}
 			
-		    <!-- # --BEHAVIOR-- publicEntryAfterContent -->
-			{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
 		</div>
 	
 		<footer id="footer-{{tpl:EntryID}}" class="entry-footer">
 
 			<button class="btn btn-xs pull-right share-button" data-url="{{tpl:EntryURL}}" data-text="{{tpl:EntryTitle encode_html="1"}}">
-				<img src="{{tpl:BlogThemeURL}}/img/social-share.png" width="108" height="35" alt="social share"/>
+				<img src="{{tpl:BlogThemeURL}}/img/social-share.png" width="72" height="35" alt="social share"/>
 			</button>
 
 			{{tpl:include src="fragments/_post-info.html"}}
+
+	    	        <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+                        {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
 
 			<!-- # Tags -->
 			<tpl:EntryTags>
@@ -67,5 +68,7 @@
 					</ul>
 				</tpl:TagsFooter>
 			</tpl:EntryTags>
+
+
 		</footer>
 	</article>

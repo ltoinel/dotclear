@@ -3145,5 +3145,14 @@ $( document ).ready( function() {
     // Tab initialize
     $('#annexe').tab();
 
+    // Rateit
+    $.fn.rateit.defaults.service_url = 'https://www.geeek.org/rateitservice/';
+    $.fn.rateit.defaults.service_func = 'rateItVote';
+    $.fn.rateit.defaults.image_size = '48';
+    $.fn.rateit.defaults.blog_uid = '174dd04649aae74eaf9b394b8a511698';
+    $.fn.rateit.defaults.enable_cookie = '1';
+    $.fn.rateit.defaults.msg_thanks = '';
+    $('.rateit').rateit();
+
 });
 
