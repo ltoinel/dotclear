@@ -1,0 +1,103 @@
+.rateit * {
+ margin:0px;
+ padding:0px;
+}
+.rateit-classic{
+ margin-right:10px;
+ height: 20px;
+ margin-top: 6px;
+}
+.rateit-note{
+ display:none;
+}
+.rateit-total{
+ display:none;
+}
+.rateit h3 {
+ border-width: 1px 0;
+ border-style: solid;
+ border-color: #bfbfbf;
+ background: #fbfbfb;
+ padding: 5px;
+ margin: 20px 0 8px 0;
+ font-size: 1.2em;
+}
+.rateit-fullnote {
+ float:left;
+ margin-top:0;
+ margin-right:5px;
+ font-size: 0.8em;
+ font-weight: bold;
+}
+.rateit-mincount {
+ float:left;
+ margin-top:0;
+ margin-right:5px;
+ font-size: 1.2em;
+ font-weight: bold;
+}
+.rateit-maxcount {
+ float:left;
+ margin-top:0;
+ margin-right:5px;
+ font-size: 1.2em;
+ font-weight: bold;
+}
+.rateit-linker {
+ float:left;
+ margin-top:0;
+ margin-right:5px;
+ font-style: italic;
+}
+.rateit ul {
+ clear:both;
+}
+.rateit li {
+ display: inline;
+ white-space: nowrap;
+ list-style: none;
+ padding-left: 14px;
+ background: transparent url(img/star_little.png) no-repeat 0 center;
+}
+#sidebar .rateit h3 {
+ border-width: 0;
+ border-style: solid;
+ border-color: transparent;
+ background: none;
+ padding: 5px;
+ margin: 0;
+ font-size: 1em;
+}
+#sidebar div .rateit li {
+ white-space: nowrap;
+ list-style: none;
+ padding-left: 16px;
+ background: transparent url(img/star_little.png) no-repeat 0 center;
+ display: block;
+}
+
+.rateit-rank {
+ font-weight: bold;
+ font-size: 1.2em;
+}
+#comments dt {
+ clear:both;
+}
+#comments .rateit {
+ display:block;
+ position:relative;
+ bottom:0;
+ left:0;
+ margin:0px;
+ padding:0px;
+}
+#comments .rateit h3 {
+ border:none;
+ margin:0px;
+ padding:0px;
+ background: transparent;
+ font-size: 1em;
+}
+#comments .rateit-fullnote, #comments .rateit ul {
+ display:none;
+}

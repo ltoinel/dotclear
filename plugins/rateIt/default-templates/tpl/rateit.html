@@ -1,0 +1,25 @@
+<tpl:rateIt>
+
+ <tpl:rateItIf style="classic">
+  <div class="rateit rateit-classic entry-info-co pull-right" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+     {{tpl:rateItFullnote}} {{tpl:rateItLinker}}
+     {{tpl:rateItNote}} {{tpl:rateItTotal}}
+  </div>
+  </tpl:rateItIf>
+
+ <tpl:rateItIf style="twin">
+  <div class="rateit rateit-twin">
+	<p>{{tpl:rateItMinCount}}</p>
+	{{tpl:rateItLinker}}
+	<p>{{tpl:rateItMaxCount}}</p>
+  </div>
+ </tpl:rateItIf>
+
+ <tpl:rateItIf style="simple">
+  <div class="rateit retait-simple">
+	{{tpl:rateItLinker}}
+	<p>{{tpl:rateItMaxCount}}</p>
+  </div>
+ </tpl:rateItIf>
+
+</tpl:rateIt>

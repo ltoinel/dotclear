@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title>RateIt - Paramètres</title>
+  </head>
+  <body>
+    <h4>Plugin</h4>
+    <dl>
+      <dt>Activer le Plugin</dt>
+      <dd>Permet d'activer ou non le plugin sur un blog.<br />
+	Avec une configuration d'origine, la désactivation du plugin masquera toutes
+	les balises en rapport avec le plugin côté public.</dd>
+
+      <dt>Identifier l'utilisateur par</dt>
+      <dd>Méthode de gestion des votes, soit par IP, soit par cookie, soit les deux.<br />
+	Chaque méthode a ses avantages et ses inconvénients.</dd>
+    </dl>
+
+    <h4>Note</h4>
+    <dl>
+      <dt>Note sur</dt>
+      <dd>Permet de modifier le quotient de la note de 2 à 20 (exemple de note : 5/20).</dd>
+
+      <dt>Nombre de décimales</dt>
+      <dd>Permet d'arrondir le résultat affiché à x chiffres après la virgule (de 0 à 4).</dd>
+
+      <dt>Message de remerciement</dt>
+      <dd>Après un vote l'interface peut être modifiée en affichant un message au votant.<br />
+	Si le message est vide, l'interface ne sera pas modifiée.</dd>
+    </dl>
+
+    <h4>Widget</h4>
+    <p>Deux widgets sont disponibles.</p>
+
+    <h5>EVALUER ÇA : ÉVALUATIONS</h5>
+    <p>Ce widget (de class "rateit") permet d'afficher une interface de vote sur la page
+      d'une entrée (billet, catégorie, mot-clé, événement).</p>
+    <dl>
+      <dt>Autoriser le vote pour les billets</dt>
+      <dd>Si cette option est cochée et qu'on est sur la page d'un billet, le widget
+	affichera un formulaire de vote.</dd>
+
+      <dt>Titre pour les billets</dt>
+      <dd>Permet de modifier le titre du widget pour le vote sur les billets. Si ce
+	champ est vide alors la balise de titre ne sera pas présente.</dd>
+
+      <dd>D'autres options sont possibles ici si d'autres plugins utilisent la même interface.<br />
+	Par exemple le vote pour des catégories, des mots-clés, des événements, etc.<br />
+	Un behavior <code>parseWidgetRateItVote</code> est disponible ici.</dd>
+
+      <dt>Afficher la note complète</dt>
+      <dd>Ajoute l'affichage d'une balise de class "rateit-fullnote" contenant :
+	<ul>
+	  <li>soit la note complète, exemple : 5/20,</li>
+	  <li>soit la note en pourcentage, exemple : 25%</li>
+	  <li>soit la balise n'est pas présente si "cacher" est sélectionné.</li>
+      </ul></dd>
+
+      <dt>Afficher la note</dt>
+      <dd>Affiche la note dans une liste d'items.</dd>
+
+      <dt>Afficher le nombre de votes</dt>
+      <dd>Idem ci-dessus.</dd>
+
+      <dt>Afficher la note la plus haute</dt>
+      <dd>Idem ci-dessus.</dd>
+
+      <dt>Afficher la note la plus basse</dt>
+      <dd>Idem ci-dessus.</dd>
+    </dl>
+
+    <h5>EVALUER ÇA : TOP ÉVALUATION</h5>
+    <p>Ce widget (de class "rateitpostsrank") permet d'afficher un classement des votes.</p>
+    <dl>
+      <dt>Titre</dt>
+      <dd>Permet de modifier le titre du widget. Si ce champ est vide la balise de
+	titre ne sera pas présente.</dd>
+
+      <dt>Type</dt>
+      <dd>Par défaut, seul le type "Billets" est présent.<br />
+	D'autres types sont possibles ici si d'autres plugins utilisent la même interface.<br />
+	Un behavior <code>parseWidgetRateItRank</code> est disponible ici.</dd>
+
+      <dt>Limiter à une catégorie (si possible)</dt>
+      <dd>Si le type le permet, il est possible de restreindre l'affichage à une catégorie.</dd>
+
+      <dt>Longueur</dt>
+      <dd>Nombre de billets à afficher.</dd>
+
+      <dt>Trier par</dt>
+      <dd>Il est possible de trier les résultats par nombre de votes ou par note.</dd>
+
+      <dt>Ordre</dt>
+      <dd>Permet de modifier l'ordre. Croissant ou décroissant.</dd>
+
+      <dt>Texte</dt>
+      <dd>Permet de mettre en forme le résultat avec comme options :
+	<ul>
+	  <li>%rank% : le rang (1, 2, 3...),</li>
+	  <li>%title% : le titre du billet,</li>
+	  <li>%note% : la note,</li>
+	  <li>%quotient% : le quotient,</li>
+	  <li>%percent% : la note en pourcentage,</li>
+	  <li>%count% : le nombre de votes.
+      </ul></dd>
+
+      <dt>Longueur de titre (si tronqué)</dt>
+      <dd>Permet de limiter la longueur du titre de l'entrée aux <em>n</em> premiers
+	caractères (où <em>n</em> est un nombre entier).</dd>
+    </dl>
+
+    <h4>Image</h4>
+    <p>Vous pouvez modifier l'apparence de l'interface de vote avec un choix prédéfini
+      d'image ou en en ajoutant une nouvelle.<br />
+      La nouvelle image doit obligatoirement être au format "png" et avec trois parties
+      égales en hauteur :</p>
+    <ul>
+      <li>une partie haute représentant "un non vote",</li>
+      <li>une partie centrale représentant un vote positif et</li>
+      <li>une partie basse représentant le survol par la souris.</li>
+    </ul>
+    <p>La largeur et la hauteur sont à votre convenance.</p>
+
+    <p>L'ordre de recherche de l'image est :</p>
+    <ol>
+      <li>dans le thème utilisé par le blog, fichier : /img/rateit-stars.png</li>
+      <li>dans le répertoire public du blog, fichier : /rateit/rateit-stars.png</li>
+      <li>dans le répertoire du plugin, fichier : /default-template/img/rateit-stars.png</li>
+    </ol>
+
+    <h4>Support</h4>
+    <p>Si vous souhaitez plus d'aide ou apporter votre contribution à ce plugin, voici quelques liens utiles.</p>
+    <ul>
+      <li><a href="http://forum.dotclear.org/viewtopic.php?id=39801">Sujet sur le forum Dotclear</a></li>
+      <li><a href="http://lab.dotclear.org/wiki/plugin/rateIt">Page dédiée du lab Dotclear</a></li>
+      <li><a href="https://github.com/nikrou/rateIt">Dépôt git de l'auteur</a></li>
+    </ul>
+    <p>Utilise jQuery Star Rating Plugin v3.12 par <a href="http://www.fyneworks.com/jquery/star-rating/">Fyneworks</a></p>
+  </body>
+</html>

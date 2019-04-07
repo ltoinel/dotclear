@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>RateIt - Modules</title>
+  </head>
+  <body>
+    <h4>Posts</h4>
+    <dl>
+      <dt>Include in posts pages</dt>
+      <dd>Use in post.html template.<br />
+	So that rate block is automatically included at the end of post without modifying templates.<br />
+	The tag <code>{{tpl:SysBehavior behavior="publicEntryAfterContent"}}</code>
+	must be in the template in you theme.</dd>
+
+      <dt>Include in the homepage</dt>
+      <dd>Use in home.html template.Like above.</dd>
+
+      <dt>Include in category page</dt>
+      <dd>Use in category.html template.Like above.</dd>
+
+      <dt>Limited to a category</dt>
+      <dd>You can authorize rating for only posts in a single category.</dd>
+    </dl>
+
+    <h4>Comments</h4>
+    <dl>
+      <dt>Include in comments</dt>
+      <dd>Use in post.html template.<br />
+	So that rate block is automatically included at the end of a comment without modifying temmplates.<br />
+	The tag <code>{{tpl:SysBehavior behavior="publicCommentAfterContent"}}</code>
+	must be in the temmplate in your theme.</dd>
+    </dl>
+
+    <h4>Events</h4>
+    <dl>
+      <dt>Include in an event page</dt>
+      <dd>Use in event.html template.<br />
+	So that rate block is automatically included at the end of an event without modifying temmplates.<br />
+	The tag <code>{{tpl:SysBehavior behavior="publicEntryAfterContent"}}</code>
+	must be in the temmplate of your theme.</dd>
+
+      <dt>Include in events page</dt>
+      <dd>Use in events.html template. Like above.</dd>
+    </dl>
+  </body>
+</html>

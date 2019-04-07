@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>RateIt - Modules</title>
+  </head>
+  <body>
+    <h4>Billets</h4>
+    <dl>
+      <dt>Inclure dans les pages des billets</dt>
+      <dd>Utilisé pour le template post.html.<br />
+	Permet d'inclure l'outil de vote directement à la fin d'un billet sans modifier
+	les templates.<br />
+	La balise <code>{{tpl:SysBehavior behavior="publicEntryAfterContent"}}</code>
+	doit être présente dans le thème utilisé pour que cette option fonctionne.</dd>
+
+      <dt>Inclure sur la page d'accueil</dt>
+      <dd>Utilisé pour le template home.html. Idem que ci-dessus.</dd>
+
+      <dt>Inclure sur la page des catégories</dt>
+      <dd>Utilisé pour le template category.html. Idem que ci-dessus.</dd>
+
+      <dt>Limiter à une catégorie</dt>
+      <dd>Permet de limiter les votes aux billets d'une seule catégorie.</dd>
+    </dl>
+
+    <h4>Commentaires</h4>
+    <dl>
+      <dt>Inclure dans les commentairess</dt>
+      <dd>Utilisé pour le template post.html.<br />
+	Permet d'inclure l'outil de vote directement à la fin d'un commentaire sans modifier
+	les templates.<br />
+	La balise <code>{{tpl:SysBehavior behavior="publicCommentAfterContent"}}</code>
+	doit être présente dans le thème utilisé pour que cette option fonctionne.</dd>
+    </dl>
+
+    <h4>Evénements</h4>
+    <dl>
+      <dt>Inclure dans la page de l'événement</dt>
+      <dd>Utilisé pour le template event.html.<br />
+	Permet d'inclure l'outil de vote directement à la fin d'un événement sans modifier
+	les templates.<br />
+	La balise <code>{{tpl:SysBehavior behavior="publicEntryAfterContent"}}</code>
+	doit être présente dans le thème utilisé pour que cette option fonctionne.</dd>
+
+      <dt>Inclure dans la page des événements</dt>
+      <dd>Utilisé pour le template events.html. Idem que ci-dessus.</dd>
+    </dl>
+  </body>
+</html>

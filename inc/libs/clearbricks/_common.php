@@ -1,39 +1,44 @@
 <?php
-# ***** BEGIN LICENSE BLOCK *****
-# This file is part of Clearbricks.
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# All rights reserved.
-#
-# Clearbricks is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# Clearbricks is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Clearbricks; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-#
-# ***** END LICENSE BLOCK *****
+/**
+ * @package Clearbricks
+ *
+ * Tiny library including:
+ * - Database abstraction layer (MySQL/MariadDB, postgreSQL and SQLite)
+ * - File manager
+ * - Feed reader
+ * - HTML filter/validator
+ * - Images manipulation tools
+ * - Mail utilities
+ * - HTML pager
+ * - REST Server
+ * - Database driven session handler
+ * - Simple Template Systeme
+ * - URL Handler
+ * - Wiki to XHTML Converter
+ * - HTTP/NNTP clients
+ * - XML-RPC Client and Server
+ * - Zip tools
+ * - Diff tools
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ * @version 1.0
+ */
 
 require dirname(__FILE__).'/common/_main.php';
 
 # Database Abstraction Layer
-$__autoload['dbLayer']                   = dirname(__FILE__).'/dblayer/dblayer.php';
-$__autoload['dbStruct']                  = dirname(__FILE__).'/dbschema/class.dbstruct.php';
-$__autoload['dbSchema']                  = dirname(__FILE__).'/dbschema/class.dbschema.php';
+$__autoload['dbLayer']                   = dirname(__FILE__) .'/dblayer/dblayer.php';
+$__autoload['dbStruct']                  = dirname(__FILE__) .'/dbschema/class.dbstruct.php';
+$__autoload['dbSchema']                  = dirname(__FILE__) .'/dbschema/class.dbschema.php';
 
 # Files Manager
-$__autoload['filemanager']               = dirname(__FILE__).'/filemanager/class.filemanager.php';
-$__autoload['fileItem']                  = dirname(__FILE__).'/filemanager/class.filemanager.php';
+$__autoload['filemanager']               = dirname(__FILE__) .'/filemanager/class.filemanager.php';
+$__autoload['fileItem']                  = dirname(__FILE__) .'/filemanager/class.filemanager.php';
 
 # Feed Reader
-$__autoload['feedParser']                = dirname(__FILE__).'/net.http.feed/class.feed.parser.php';
-$__autoload['feedReader']                = dirname(__FILE__).'/net.http.feed/class.feed.reader.php';
+$__autoload['feedParser']                = dirname(__FILE__) .'/net.http.feed/class.feed.parser.php';
+$__autoload['feedReader']                = dirname(__FILE__) .'/net.http.feed/class.feed.reader.php';
 
 # HTML Filter
 $__autoload['htmlFilter']                = dirname(__FILE__).'/html.filter/class.html.filter.php';

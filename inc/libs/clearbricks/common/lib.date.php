@@ -1,259 +1,288 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Clearbricks.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-
 /**
-* Date/time utilities
-*
-* @package Clearbricks
-* @subpackage Common
-*/
+ * @class dt
+ * @brief Date/time utilities
+ *
+ * @package Clearbricks
+ * @subpackage Common
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+
 class dt
 {
-	/**
-	* Timestamp formating
-	*
-	* Returns a date formated like PHP
-	* {@link http://www.php.net/manual/en/function.strftime.php strftime}
-	* function.
-	* Special cases %a, %A, %b and %B are handled by {@link l10n} library.
-	*
-	* @param string	$p		Format pattern
-	* @param integer	$ts		Timestamp
-	* @param string	$tz		Timezone
-	* @return	string
-	*/
-	public static function str($p,$ts=null,$tz=null)
-	{
-		if ($ts === null) { $ts = time(); }
+    private static $timezones = null;
 
-		$hash = '799b4e471dc78154865706469d23d512';
-		$p = preg_replace('/(?<!%)%(a|A)/','{{'.$hash.'__$1%w__}}',$p);
-		$p = preg_replace('/(?<!%)%(b|B)/','{{'.$hash.'__$1%m__}}',$p);
+    /**
+     * Timestamp formating
+     *
+     * Returns a date formated like PHP <a href="http://www.php.net/manual/en/function.strftime.php">strftime</a>
+     * function.
+     * Special cases %a, %A, %b and %B are handled by {@link l10n} library.
+     *
+     * @param string    $p        Format pattern
+     * @param integer    $ts        Timestamp
+     * @param string    $tz        Timezone
+     * @return    string
+     */
+    public static function str($p, $ts = null, $tz = null)
+    {
+        if ($ts === null) {$ts = time();}
 
-		if ($tz) {
-			$T = self::getTZ();
-			self::setTZ($tz);
-		}
+        $hash = '799b4e471dc78154865706469d23d512';
+        $p    = preg_replace('/(?<!%)%(a|A)/', '{{' . $hash . '__$1%w__}}', $p);
+        $p    = preg_replace('/(?<!%)%(b|B)/', '{{' . $hash . '__$1%m__}}', $p);
 
-		$res = strftime($p,$ts);
+        if ($tz) {
+            $T = self::getTZ();
+            self::setTZ($tz);
+        }
 
-		if ($tz) {
-			self::setTZ($T);
-		}
+        $res = strftime($p, $ts);
 
-		$res = preg_replace_callback('/{{'.$hash.'__(a|A|b|B)([0-9]{1,2})__}}/',array('self','_callback'),$res);
+        if ($tz) {
+            self::setTZ($T);
+        }
 
-		return $res;
-	}
+        $res = preg_replace_callback('/{{' . $hash . '__(a|A|b|B)([0-9]{1,2})__}}/', ['self', '_callback'], $res);
 
-	/**
-	* Date to date
-	*
-	* Format a literal date to another literal date.
-	*
-	* @param string	$p		Format pattern
-	* @param string	$dt		Date
-	* @param string	$tz		Timezone
-	* @return	string
-	*/
-	public static function dt2str($p,$dt,$tz=null)
-	{
-		return dt::str($p,strtotime($dt),$tz);
-	}
+        return $res;
+    }
 
-	/**
-	* ISO-8601 formatting
-	*
-	* Returns a timestamp converted to ISO-8601 format.
-	*
-	* @param integer	$ts		Timestamp
-	* @param string	$tz		Timezone
-	* @return	string
-	*/
-	public static function iso8601($ts,$tz='UTC')
-	{
-		$o = self::getTimeOffset($tz,$ts);
-		$of = sprintf('%02u:%02u',abs($o)/3600,(abs($o)%3600)/60);
-		return date('Y-m-d\\TH:i:s',$ts).($o < 0 ? '-' : '+').$of;
-	}
+    /**
+     * Date to date
+     *
+     * Format a literal date to another literal date.
+     *
+     * @param string    $p        Format pattern
+     * @param string    $dt        Date
+     * @param string    $tz        Timezone
+     * @return    string
+     */
+    public static function dt2str($p, $dt, $tz = null)
+    {
+        return dt::str($p, strtotime($dt), $tz);
+    }
 
-	/**
-	* RFC-822 formatting
-	*
-	* Returns a timestamp converted to RFC-822 format.
-	*
-	* @param integer	$ts		Timestamp
-	* @param string	$tz		Timezone
-	* @return	string
-	*/
-	public static function rfc822($ts,$tz='UTC')
-	{
-		# Get offset
-		$o = self::getTimeOffset($tz,$ts);
-		$of = sprintf('%02u%02u',abs($o)/3600,(abs($o)%3600)/60);
-		return strftime('%a, %d %b %Y %H:%M:%S '.($o < 0 ? '-' : '+').$of,$ts);
-	}
+    /**
+     * ISO-8601 formatting
+     *
+     * Returns a timestamp converted to ISO-8601 format.
+     *
+     * @param integer    $ts        Timestamp
+     * @param string    $tz        Timezone
+     * @return    string
+     */
+    public static function iso8601($ts, $tz = 'UTC')
+    {
+        $o  = self::getTimeOffset($tz, $ts);
+        $of = sprintf('%02u:%02u', abs($o) / 3600, (abs($o) % 3600) / 60);
+        return date('Y-m-d\\TH:i:s', $ts) . ($o < 0 ? '-' : '+') . $of;
+    }
 
-	/**
-	* Timezone set
-	*
-	* Set timezone during script execution.
-	*
-	* @param	string	$tz		Timezone
-	*/
-	public static function setTZ($tz)
-	{
-		if (function_exists('date_default_timezone_set')) {
-			date_default_timezone_set($tz);
-			return;
-		}
+    /**
+     * RFC-822 formatting
+     *
+     * Returns a timestamp converted to RFC-822 format.
+     *
+     * @param integer    $ts        Timestamp
+     * @param string    $tz        Timezone
+     * @return    string
+     */
+    public static function rfc822($ts, $tz = 'UTC')
+    {
+        # Get offset
+        $o  = self::getTimeOffset($tz, $ts);
+        $of = sprintf('%02u%02u', abs($o) / 3600, (abs($o) % 3600) / 60);
+        return strftime('%a, %d %b %Y %H:%M:%S ' . ($o < 0 ? '-' : '+') . $of, $ts);
+    }
 
-		if (!ini_get('safe_mode')) {
-			putenv('TZ='.$tz);
-		}
-	}
+    /**
+     * Timezone set
+     *
+     * Set timezone during script execution.
+     *
+     * @param    string    $tz        Timezone
+     */
+    public static function setTZ($tz)
+    {
+        if (function_exists('date_default_timezone_set')) {
+            date_default_timezone_set($tz);
+            return;
+        }
 
-	/**
-	* Current timezone
-	*
-	* Returns current timezone.
-	*
-	* @return string
-	*/
-	public static function getTZ()
-	{
-		if (function_exists('date_default_timezone_get')) {
-			return date_default_timezone_get();
-		}
+        if (!ini_get('safe_mode')) {
+            putenv('TZ=' . $tz);
+        }
+    }
 
-		return date('T');
-	}
+    /**
+     * Current timezone
+     *
+     * Returns current timezone.
+     *
+     * @return string
+     */
+    public static function getTZ()
+    {
+        if (function_exists('date_default_timezone_get')) {
+            return date_default_timezone_get();
+        }
 
-	/**
-	* Time offset
-	*
-	* Get time offset for a timezone and an optionnal $ts timestamp.
-	*
-	* @param string	$tz		Timezone
-	* @param integer	$ts		Timestamp
-	* @return integer
-	*/
-	public static function getTimeOffset($tz,$ts=false)
-	{
-		if (!$ts) {
-			$ts = time();
-		}
+        return date('T');
+    }
 
-		$server_tz = self::getTZ();
-		$server_offset = date('Z',$ts);
+    /**
+     * Time offset
+     *
+     * Get time offset for a timezone and an optionnal $ts timestamp.
+     *
+     * @param string    $tz        Timezone
+     * @param integer    $ts        Timestamp
+     * @return integer
+     */
+    public static function getTimeOffset($tz, $ts = false)
+    {
+        if (!$ts) {
+            $ts = time();
+        }
 
-		self::setTZ($tz);
-		$cur_offset = date('Z',$ts);
+        $server_tz     = self::getTZ();
+        $server_offset = date('Z', $ts);
 
-		self::setTZ($server_tz);
+        self::setTZ($tz);
+        $cur_offset = date('Z', $ts);
 
-		return $cur_offset-$server_offset;
-	}
+        self::setTZ($server_tz);
 
-	/**
-	* UTC conversion
-	*
-	* Returns any timestamp from current timezone to UTC timestamp.
-	*
-	* @param integer	$ts		Timestamp
-	* @return integer
-	*/
-	public static function toUTC($ts)
-	{
-		return $ts + self::getTimeOffset('UTC',$ts);
-	}
+        return $cur_offset - $server_offset;
+    }
 
-	/**
-	* Add timezone
-	*
-	* Returns a timestamp with its timezone offset.
-	*
-	* @param string	$tz		Timezone
-	* @param integer	$ts		Timestamp
-	* @return integer
-	*/
-	public static function addTimeZone($tz,$ts=false)
-	{
-		if ($ts === false) {
-			$ts = time();
-		}
-		return $ts + self::getTimeOffset($tz,$ts);
-	}
+    /**
+     * UTC conversion
+     *
+     * Returns any timestamp from current timezone to UTC timestamp.
+     *
+     * @param integer    $ts        Timestamp
+     * @return integer
+     */
+    public static function toUTC($ts)
+    {
+        return $ts + self::getTimeOffset('UTC', $ts);
+    }
 
-	/**
-	* Timzones
-	*
-	* Returns an array of supported timezones, codes are keys and names are values.
-	*
-	* @todo Store timzones in a static variable at the first time.
-	*
-	* @param boolean	$flip	Names are keys and codes are values
-	* @param boolean	$groups	Return timezones in arrays of continents
-	* @return array
-	*/
-	public static function getZones($flip=false,$groups=false)
-	{
-		if (!is_readable($f = dirname(__FILE__).'/tz.dat')) {
-			return array();
-		}
+    /**
+     * Add timezone
+     *
+     * Returns a timestamp with its timezone offset.
+     *
+     * @param string    $tz        Timezone
+     * @param integer    $ts        Timestamp
+     * @return integer
+     */
+    public static function addTimeZone($tz, $ts = false)
+    {
+        if ($ts === false) {
+            $ts = time();
+        }
+        return $ts + self::getTimeOffset($tz, $ts);
+    }
 
-		$tz =  file(dirname(__FILE__).'/tz.dat');
+    /**
+     * Timzones
+     *
+     * Returns an array of supported timezones, codes are keys and names are values.
+     *
+     * @param boolean    $flip      Names are keys and codes are values
+     * @param boolean    $groups    Return timezones in arrays of continents
+     * @return array
+     */
+    public static function getZones($flip = false, $groups = false)
+    {
+        if (is_null(self::$timezones)) {
+            // Read timezones from file
+            if (!is_readable($f = dirname(__FILE__) . '/tz.dat')) {
+                return [];
+            }
+            $tz = file(dirname(__FILE__) . '/tz.dat');
+            $res = [];
+            foreach ($tz as $v) {
+                $v = trim($v);
+                if ($v) {
+                    $res[$v] = str_replace('_', ' ', $v);
+                }
+            }
+            // Store timezones for further accesses
+            self::$timezones = $res;
+        } else {
+            // Timezones already read from file
+            $res = self::$timezones;
+        }
 
-		$res = array();
+        if ($flip) {
+            $res = array_flip($res);
+            if ($groups) {
+                $tmp = [];
+                foreach ($res as $k => $v) {
+                    $g              = explode('/', $k);
+                    $tmp[$g[0]][$k] = $v;
+                }
+                $res = $tmp;
+            }
+        }
 
-		foreach ($tz as $v)
-		{
-			$v = trim($v);
-			if ($v) {
-				$res[$v] = str_replace('_',' ',$v);
-			}
-		}
+        return $res;
+    }
 
-		if ($flip) {
-			$res = array_flip($res);
-			if ($groups) {
-				$tmp = array();
-				foreach ($res as $k => $v) {
-					$g = explode('/',$k);
-					$tmp[$g[0]][$k] = $v;
-				}
-				$res = $tmp;
-			}
-		}
+    private static function _callback($args)
+    {
+        $b = [
+            1  => '_Jan',
+            2  => '_Feb',
+            3  => '_Mar',
+            4  => '_Apr',
+            5  => '_May',
+            6  => '_Jun',
+            7  => '_Jul',
+            8  => '_Aug',
+            9  => '_Sep',
+            10 => '_Oct',
+            11 => '_Nov',
+            12 => '_Dec'];
 
-		return $res;
-	}
+        $B = [
+            1  => 'January',
+            2  => 'February',
+            3  => 'March',
+            4  => 'April',
+            5  => 'May',
+            6  => 'June',
+            7  => 'July',
+            8  => 'August',
+            9  => 'September',
+            10 => 'October',
+            11 => 'November',
+            12 => 'December'];
 
-	private static function _callback($args)
-	{
-		$b = array(1=>'_Jan',2=>'_Feb',3=>'_Mar',4=>'_Apr',5=>'_May',6=>'_Jun',
-		7=>'_Jul',8=>'_Aug',9=>'_Sep',10=>'_Oct',11=>'_Nov',12=>'_Dec');
+        $a = [
+            1 => '_Mon',
+            2 => '_Tue',
+            3 => '_Wed',
+            4 => '_Thu',
+            5 => '_Fri',
+            6 => '_Sat',
+            0 => '_Sun'];
 
-		$B = array(1=>'January',2=>'February',3=>'March',4=>'April',
-		5=>'May',6=>'June',7=>'July',8=>'August',9=>'September',
-		10=>'October',11=>'November',12=>'December');
+        $A = [
+            1 => 'Monday',
+            2 => 'Tuesday',
+            3 => 'Wednesday',
+            4 => 'Thursday',
+            5 => 'Friday',
+            6 => 'Saturday',
+            0 => 'Sunday'];
 
-		$a = array(1=>'_Mon',2=>'_Tue',3=>'_Wed',4=>'_Thu',5=>'_Fri',
-		6=>'_Sat',0=>'_Sun');
-
-		$A = array(1=>'Monday',2=>'Tuesday',3=>'Wednesday',4=>'Thursday',
-		5=>'Friday',6=>'Saturday',0=>'Sunday');
-
-		return __(${$args[1]}[(integer) $args[2]]);
-	}
+        return __(${$args[1]}[(integer) $args[2]]);
+    }
 }
-?>
